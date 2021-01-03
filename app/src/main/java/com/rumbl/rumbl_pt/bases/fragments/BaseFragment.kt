@@ -8,7 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.rumbl.bases.viewmodel.BaseViewModel
+import com.rumbl.rumbl_pt.bases.viewmodel.BaseViewModel
 import com.rumbl.rumbl_pt.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

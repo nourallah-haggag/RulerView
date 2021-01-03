@@ -17,6 +17,13 @@
         <item name="android:textSize">@dimen/_18sp_in</item>
     </style>
 
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonStyle">@style/AppTheme.DefaultButton</item>
+    </style>
+
     <style name="AppTheme.AlertDialog.NoTitle" parent="AppTheme.AlertDialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>

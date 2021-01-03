@@ -1,13 +1,14 @@
-package com.rumbl.bases.viewmodel
+package com.rumbl.rumbl_pt.bases.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.rumbl.bases.viewmodel.IViewModel
 import com.rumbl.rumbl_pt.bases.states.IResult
 import com.rumbl.rumbl_pt.bases.states.Result
-import com.rumbl.network.IErrorHandling
-import com.rumbl.network.NetworkErrorHandlingImp
-import com.rumbl.utils.IoLoadingTransformation
-import com.rumbl.utils.IoTransformation
+import com.rumbl.rumbl_pt.bases.network.IErrorHandling
+import com.rumbl.rumbl_pt.bases.network.NetworkErrorHandlingImp
+import com.rumbl.rumbl_pt.utils.IoLoadingTransformation
+import com.rumbl.rumbl_pt.utils.IoTransformation
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Maybe
 import io.reactivex.rxjava3.core.Observable

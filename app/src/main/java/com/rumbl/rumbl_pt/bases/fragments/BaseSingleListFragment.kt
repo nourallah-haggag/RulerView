@@ -6,7 +6,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
-import com.rumbl.bases.viewmodel.BaseSingleListViewModel
+import com.rumbl.rumbl_pt.bases.viewmodel.BaseSingleListViewModel
 import kotlin.reflect.KClass
 
 /**

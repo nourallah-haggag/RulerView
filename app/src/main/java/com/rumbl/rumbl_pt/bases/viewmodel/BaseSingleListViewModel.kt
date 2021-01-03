@@ -1,4 +1,4 @@
-package com.rumbl.bases.viewmodel
+package com.rumbl.rumbl_pt.bases.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

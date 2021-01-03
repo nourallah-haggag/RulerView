@@ -5,7 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.MergeAdapter
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
-import com.rumbl.bases.viewmodel.BaseSingleListViewModel
+import com.rumbl.rumbl_pt.bases.viewmodel.BaseSingleListViewModel
 import kotlin.reflect.KClass
 
 /**

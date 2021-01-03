@@ -5,4 +5,7 @@
     <string name="txt_socket_timout_exception_message">Please check your connectivity</string>
     <string name="txt_io_exception_message">Please check your network connectivity</string>
     <string name="txt_general_error">Something went wrong</string>
+    <string name="something_went_wrong_retry">Something went wrong, please try again</string>
+    <string name="retry_action">Retry</string>
+    <string name="cancel">Cancel</string>
 </resources>

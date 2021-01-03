@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.rumbl.rumbl_pt.bases.LocaleManager
-import com.rumbl.bases.viewmodel.BaseViewModel
+import com.rumbl.rumbl_pt.bases.viewmodel.BaseViewModel
 import com.rumbl.rumbl_pt.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
