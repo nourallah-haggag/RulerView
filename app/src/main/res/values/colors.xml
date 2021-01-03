@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">@android:color/white</color>
+    <color name="colorPrimaryDark">#cccccc</color>
+    <color name="colorAccent">@android:color/black</color>
+    <color name="trolley_gray">#787D84</color>
+    <color name="medium_sea_green">#53b858</color>
+    <color name="bk_delivers_to_you_color">#EDF7EE</color>
+    <color name="platinum">#e5e5e5</color>
+    <color name="bk_plan_duration_color">#FCEAE8</color>
+    <color name="gc_red">#db2e29</color>
+    <color name="manatee">#999da5</color>
+    <color name="transparent_color">#EDF7EE</color>
+    <color name="shimmer_color">#E6E6E6</color>
+    <color name="platinum1">#ffe5e5e5</color>
+    <color name="munsell">#fff2f2f2</color>
+    <color name="aurometalsaurus">#ff6d7278</color>
+    <color name="diabled_btn_color">#b2b4bb</color>
+    <color name="checkout_tab_layout_default_color">#eeeeef</color>
+    <color name="separator_color">#e8e8e8</color>
+    <color name="about_profile_icon_background_color">#fbeae9</color>
+    <color name="gc_red_transparent">#1ADB2E29</color>
+    <color name="dim_gray">#b7b7b7</color>
+    <color name="lightpurple">#f3efff</color>
+    <color name="lightgreen">#edf6ee</color>
+    <color name="purple">#6b3bed</color>
+    <color name="green">#53b957</color>
+    <color name="lightgray">#707070</color>
 </resources>
