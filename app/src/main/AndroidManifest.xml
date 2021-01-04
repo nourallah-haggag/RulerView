@@ -17,6 +17,7 @@
         <activity
             android:name=".features.auth.AuthActivity"
             android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/SplashThem">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
