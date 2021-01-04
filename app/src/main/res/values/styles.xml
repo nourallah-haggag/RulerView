@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -32,6 +33,11 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="windowMinWidthMajor">80%</item>
         <item name="windowMinWidthMinor">80%</item>
+    </style>
+
+    <style name="SplashThem" parent="AppTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 </resources>

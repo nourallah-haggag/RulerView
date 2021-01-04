@@ -1,5 +1,8 @@
 package com.rumbl.rumbl_pt.di
 
+import com.rumbl.rumbl_pt.features.auth.AuthViewModel
+import com.rumbl.rumbl_pt.features.auth.login.LoginViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -8,5 +11,6 @@ import org.koin.dsl.module
 
 
 val viewmodelModules = module {
-
+    viewModel { AuthViewModel() }
+    viewModel { LoginViewModel() }
 }
