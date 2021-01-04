@@ -8,6 +8,14 @@
     <fragment
         android:id="@+id/fragment_login"
         android:name="com.rumbl.rumbl_pt.features.auth.login.LoginFragment"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_verification"
+            app:destination="@id/fragment_verification" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_verification"
+        android:name="com.rumbl.rumbl_pt.features.auth.verification.VerificationFragment"
+        tools:layout="@layout/fragment_verification" />
 
 </navigation>
