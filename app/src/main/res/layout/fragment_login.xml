@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_splash"
+            android:tint="@color/dark_tint" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_40dp_in"
+            android:src="@drawable/img_splash_rumbl_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="W,64:140"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintWidth_percent="0.37" />
+
+        <TextView
+            android:id="@+id/tv_do_you_have_a_problem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5dp_in"
+            android:fontFamily="@font/circularstd_book"
+            android:text="@string/do_you_have_a_problem"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sp_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_contact_us"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95" />
+
+        <TextView
+            android:id="@+id/tv_contact_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5dp_in"
+            android:fontFamily="@font/circularstd_medium"
+            android:text="@string/contact_us"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13sp_in"
+            app:layout_constraintBottom_toBottomOf="@id/tv_do_you_have_a_problem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_do_you_have_a_problem"
+            app:layout_constraintTop_toTopOf="@id/tv_do_you_have_a_problem" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40dp_in"
+            android:layout_marginEnd="@dimen/_40dp_in"
+            android:layout_marginBottom="@dimen/_30dp_in"
+            android:text="@string/next"
+            app:layout_constraintBottom_toTopOf="@id/tv_do_you_have_a_problem" />
+
+        <include
+            android:id="@+id/view_et_phone"
+            layout="@layout/view_phone_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40dp_in"
+            android:layout_marginEnd="@dimen/_40dp_in"
+            android:layout_marginBottom="@dimen/_30dp_in"
+            app:layout_constraintBottom_toTopOf="@id/btn_login" />
+
+        <TextView
+            android:id="@+id/tv_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10dp_in"
+            android:fontFamily="@font/circularstd_bold"
+            android:text="@string/phone_number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sp_in"
+            app:layout_constraintBottom_toTopOf="@id/view_et_phone"
+            app:layout_constraintStart_toStartOf="@id/view_et_phone" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_30dp_in"
+            android:fontFamily="@font/circularstd_bold"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_27sp_in"
+            app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
+            app:layout_constraintStart_toStartOf="@id/view_et_phone" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

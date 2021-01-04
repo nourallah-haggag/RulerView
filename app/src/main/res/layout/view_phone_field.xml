@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    app:cardCornerRadius="@dimen/_5dp_in">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_ksa_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25dp_in"
+            android:layout_marginTop="@dimen/_15dp_in"
+            android:layout_marginBottom="@dimen/_15dp_in"
+            android:fontFamily="@font/circularstd_medium"
+            android:text="@string/ksa_code"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sp_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:background="@color/white"
+            android:fontFamily="@font/circularstd_medium"
+            android:hint="@string/xxxxxxxxxx"
+            android:inputType="phone"
+            android:paddingTop="@dimen/_10dp_in"
+            android:paddingBottom="@dimen/_10dp_in"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sp_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_ksa_code"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
