@@ -29,4 +29,6 @@
     <color name="white">#FFFFFF</color>
     <color name="dark_tint">#6F000000</color>
     <color name="black">#000000</color>
+    <color name="cool_grey">#b1b4bb</color>
+    <color name="warm_grey">#707070</color>
 </resources>

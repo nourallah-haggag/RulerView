@@ -127,4 +127,6 @@ object Dependencies {
 
 	val imageCompressor = "id.zelory:compressor:${Versions.imageCompressor}"
 
+	val pinEt = "com.alimuzaffar.lib:pinentryedittext:2.0.6"
+
 }

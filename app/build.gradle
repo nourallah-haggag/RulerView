@@ -121,6 +121,9 @@ dependencies {
 
     //viewpager2
     implementation Dependencies.viewpager2
+
+    // sms code verification
+    implementation Dependencies.pinEt
 }
 repositories {
     mavenCentral()

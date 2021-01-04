@@ -15,4 +15,8 @@
     <string name="xxxxxxxxxx">xxxxxxxxxx</string>
     <string name="phone_number">Phone number</string>
     <string name="login">LOGIN</string>
+    <string name="new_password">New password</string>
+    <string name="you_will_login_with_this_password">You will login with this password</string>
+    <string name="resend">Resend</string>
+    <string name="phone_verification">Phone verification</string>
 </resources>
