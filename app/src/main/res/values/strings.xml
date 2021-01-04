@@ -19,4 +19,5 @@
     <string name="you_will_login_with_this_password">You will login with this password</string>
     <string name="resend">Resend</string>
     <string name="phone_verification">Phone verification</string>
+    <string name="password">Password</string>
 </resources>

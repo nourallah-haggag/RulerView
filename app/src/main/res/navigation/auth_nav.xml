@@ -16,6 +16,15 @@
     <fragment
         android:id="@+id/fragment_verification"
         android:name="com.rumbl.rumbl_pt.features.auth.verification.VerificationFragment"
-        tools:layout="@layout/fragment_verification" />
+        tools:layout="@layout/fragment_verification">
+        <action
+            android:id="@+id/action_verification_to_password_entry"
+            app:destination="@id/fragment_password_entry" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_password_entry"
+        android:name="com.rumbl.rumbl_pt.features.auth.password_entry.PasswordEnteryFragment"
+        tools:layout="@layout/fragment_password_entry" />
 
 </navigation>
