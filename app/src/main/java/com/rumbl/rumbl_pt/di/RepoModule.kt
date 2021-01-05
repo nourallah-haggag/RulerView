@@ -1,5 +1,6 @@
 package com.rumbl.rumbl_pt.di
 
+import com.rumbl.rumbl_pt.bases.repo.AuthRepo
 import org.koin.dsl.module
 
 /**
@@ -8,5 +9,5 @@ import org.koin.dsl.module
 
 
 val repoModule = module {
-
+    factory { AuthRepo(api = get()) }
 }

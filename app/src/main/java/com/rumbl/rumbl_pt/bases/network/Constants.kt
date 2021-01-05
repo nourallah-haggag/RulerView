@@ -15,4 +15,6 @@ object Constants {
 	val FORBIDDEN_CODE = 403
 
 	val AUTHORIZATION_HEADER = "Authorization"
+
+	val UNVERIFIED_USER_CODE = "2001"
 }

@@ -38,7 +38,7 @@ android {
     flavorDimensions 'mode'
     productFlavors {
         staging {
-            buildConfigField("String", "BASE_URL", "\"https://testdash.rumbl.app/api/V1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://testdash.rumbl.app/api/v1/\"")
             dimension 'mode'
             applicationIdSuffix '.staging'
         }

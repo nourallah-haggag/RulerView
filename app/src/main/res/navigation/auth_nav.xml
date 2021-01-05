@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_login_to_verification"
             app:destination="@id/fragment_verification" />
+        <action
+            android:id="@+id/action_login_to_password_entry"
+            app:destination="@id/fragment_password_entry" />
     </fragment>
     <fragment
         android:id="@+id/fragment_verification"
