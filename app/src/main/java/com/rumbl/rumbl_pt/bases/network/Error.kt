@@ -14,5 +14,5 @@ data class Error(override val message: String) : IError
 @JsonClass(generateAdapter = true)
 data class AuthError(
     override val message: String,
-    @Json(name = "error_code") val errorCode: String
+    @Json(name = "error_code") val errorCode: String?
 ) : IError

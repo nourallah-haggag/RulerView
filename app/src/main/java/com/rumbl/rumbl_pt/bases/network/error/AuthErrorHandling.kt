@@ -21,7 +21,12 @@ class AuthErrorHandling(
     ) {
     override fun handleForbiddenStatus(errorBody: String?): String? {
         errorBody?.let {
-            return serializationService.deserialize(it, AuthError::class.java)?.errorCode
+            serializationService.deserialize(
+                it,
+                AuthError::class.java
+            )?.errorCode?.let { unVerifiedError ->
+                return unVerifiedError
+            }
         }
         return super.handleForbiddenStatus(errorBody)
     }
