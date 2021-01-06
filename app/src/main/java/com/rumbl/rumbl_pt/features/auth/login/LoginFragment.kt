@@ -9,6 +9,7 @@ import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.network.Constants
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentLoginBinding
+import com.rumbl.rumbl_pt.features.auth.verification.VerificationFragment
 import kotlinx.android.synthetic.main.view_phone_field.view.*
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
@@ -30,10 +31,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
                         progressSendPhone.visibility = View.GONE
                         btnLogin.visibility = View.VISIBLE
                     }
-                    it.fetchData()?.trainer?.let {
-                        //TODO: check response with zekry
-                        findNavController().navigate(R.id.action_login_to_password_entry)
-                    }
 
                 }
                 CommonStatusImp.LOADING -> {
@@ -49,10 +46,29 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
                         btnLogin.visibility = View.VISIBLE
                     }
                     it.fetchError()?.let { error ->
-                        if (error == Constants.UNVERIFIED_USER_CODE) {
-                            findNavController().navigate(R.id.action_login_to_verification)
-                        } else {
-                            Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                        // check on error codes and behave accordingly
+                        when (error) {
+                            Constants.NO_ACCOUNT, Constants.ACCOUNT_INACTACTIVE, Constants.DIDNOT_SET_PASSWORD -> {
+                                findNavController().navigate(
+                                    R.id.action_login_to_verification,
+                                    VerificationFragment.passPhoneNumber(phone = binding.viewEtPhone.et_phone.text.toString())
+                                )
+                            }
+                            Constants.WRONG_PHONE_OR_PASSWORD -> {
+                                Toast.makeText(
+                                    requireContext(),
+                                    getString(R.string.wrong_phone_or_password),
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                            else -> {
+                                Toast.makeText(
+                                    requireContext(),
+                                    getString(R.string.unknown_error_occurred),
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
                         }
                     }
                 }

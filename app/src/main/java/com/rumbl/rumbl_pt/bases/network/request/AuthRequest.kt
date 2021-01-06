@@ -8,5 +8,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class AuthRequest(
     val phone: String,
-    val password: String? = null
+    val password: String? = null,
+    val code: String? = null
 ) : Parcelable

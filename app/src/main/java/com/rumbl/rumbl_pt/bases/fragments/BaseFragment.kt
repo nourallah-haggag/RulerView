@@ -38,6 +38,14 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewDataBinding
         lifecycle.addObserver(viewmodel)
     }
 
+    fun closeKeyboard() {
+        requireActivity().currentFocus?.let {
+            val imm =
+                it.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = DataBindingUtil.bind(view)!!
         binding.lifecycleOwner = viewLifecycleOwner

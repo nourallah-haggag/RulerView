@@ -16,5 +16,11 @@ object Constants {
 
 	val AUTHORIZATION_HEADER = "Authorization"
 
-	val UNVERIFIED_USER_CODE = "2001"
+	val NO_ACCOUNT = "2004"
+
+	val ACCOUNT_INACTACTIVE = "2003"
+
+	val WRONG_PHONE_OR_PASSWORD = "2002"
+
+	val DIDNOT_SET_PASSWORD = "2001"
 }

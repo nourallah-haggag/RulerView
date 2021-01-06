@@ -11,4 +11,7 @@ interface AuthApi {
 
     @POST("pt/login")
     fun login(@Body loginRequestBody: AuthRequest): Single<BaseWrapper<AuthResponse>>
+
+    @POST("pt/set-password")
+    fun setPassword(@Body loginRequestBody: AuthRequest): Single<BaseWrapper<Any>>
 }

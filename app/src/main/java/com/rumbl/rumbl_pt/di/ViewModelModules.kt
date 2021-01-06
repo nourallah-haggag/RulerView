@@ -15,6 +15,6 @@ import org.koin.dsl.module
 val viewmodelModules = module {
     viewModel { AuthViewModel() }
     viewModel { LoginViewModel(repo = get()) }
-    viewModel { VerificationViewModel() }
+    viewModel { VerificationViewModel(repo = get()) }
     viewModel { PasswordEntryViewModel() }
 }

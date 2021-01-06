@@ -5,6 +5,16 @@ import com.rumbl.rumbl_pt.bases.network.services.AuthApi
 
 class AuthRepo(private val api: AuthApi) : IRepo {
 
-    fun loginPt(phone: String, password: String? = null) =
-        api.login(loginRequestBody = AuthRequest(phone = phone, password = password)).map { it.data }
+    fun loginPt(phone: String, password: String? = null, code: String? = null) =
+        api.login(loginRequestBody = AuthRequest(phone = phone, password = password, code = code))
+            .map { it.data }
+
+    fun setPassword(phone: String, password: String, code: String) =
+        api.setPassword(
+            loginRequestBody = AuthRequest(
+                phone = phone,
+                password = password,
+                code = code
+            )
+        ).map { it.data }
 }
