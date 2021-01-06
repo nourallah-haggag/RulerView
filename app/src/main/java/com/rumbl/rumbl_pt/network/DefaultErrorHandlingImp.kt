@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

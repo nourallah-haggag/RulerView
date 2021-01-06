@@ -1,6 +1,6 @@
 package com.rumbl.rumbl_pt.di
 
-import com.rumbl.rumbl_pt.bases.repo.AuthRepo
+import com.rumbl.rumbl_pt.repo.AuthRepo
 import org.koin.dsl.module
 
 /**

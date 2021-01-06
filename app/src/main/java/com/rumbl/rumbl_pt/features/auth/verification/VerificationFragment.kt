@@ -5,10 +5,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentVerificationBinding
+import com.rumbl.rumbl_pt.features.auth.password_entry.PasswordEnteryFragment
 import kotlinx.android.synthetic.main.fragment_verification.*
 import kotlinx.android.synthetic.main.view_verification_field.*
 import kotlinx.android.synthetic.main.view_verification_field.view.*
@@ -82,6 +84,12 @@ class VerificationFragment : BaseFragment<VerificationViewModel, FragmentVerific
                     binding.apply {
                         btnLogin.visibility = View.VISIBLE
                         progressVerification.visibility = View.GONE
+                    }
+                    requireArguments().getString(PHONE_KEY)?.let { phoneNumber ->
+                        findNavController().navigate(
+                            R.id.action_verification_to_password_entry,
+                            PasswordEnteryFragment.passPhoneNumber(phoneNumber)
+                        )
                     }
                 }
                 CommonStatusImp.LOADING -> {

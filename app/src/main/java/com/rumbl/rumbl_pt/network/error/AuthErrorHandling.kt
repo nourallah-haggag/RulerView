@@ -1,9 +1,9 @@
-package com.rumbl.rumbl_pt.bases.network.error
+package com.rumbl.rumbl_pt.network.error
 
 import androidx.lifecycle.MutableLiveData
-import com.rumbl.rumbl_pt.bases.network.AuthError
-import com.rumbl.rumbl_pt.bases.network.NetworkErrorHandlingImp
-import com.rumbl.rumbl_pt.bases.network.response.AuthResponse
+import com.rumbl.rumbl_pt.network.AuthError
+import com.rumbl.rumbl_pt.network.NetworkErrorHandlingImp
+import com.rumbl.rumbl_pt.network.response.AuthResponse
 import com.rumbl.rumbl_pt.bases.states.IResult
 
 

@@ -6,10 +6,11 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
-import com.rumbl.rumbl_pt.bases.network.Constants
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentLoginBinding
+import com.rumbl.rumbl_pt.features.auth.password_entry.PasswordEnteryFragment
 import com.rumbl.rumbl_pt.features.auth.verification.VerificationFragment
+import com.rumbl.rumbl_pt.network.Constants
 import kotlinx.android.synthetic.main.view_phone_field.view.*
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
@@ -19,8 +20,18 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
     override fun onCreateInit(savedInstanceState: Bundle?) {
         observeSendPhoneEvent()
         binding.btnLogin.setOnClickListener {
-            viewmodel.sendPhone(binding.viewEtPhone.et_phone.text.toString())
+            if (isPhoneNumberValid()) {
+                viewmodel.sendPhone(binding.viewEtPhone.et_phone.text.toString())
+            }
         }
+    }
+
+    private fun isPhoneNumberValid(): Boolean {
+        if (binding.viewEtPhone.et_phone.text.toString().isBlank()) {
+            Toast.makeText(requireContext(), "Invalid phone number", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 
     private fun observeSendPhoneEvent() {
@@ -30,6 +41,14 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
                     binding.apply {
                         progressSendPhone.visibility = View.GONE
                         btnLogin.visibility = View.VISIBLE
+                    }
+                    it.fetchData()?.let { authResponse ->
+                        if (authResponse.trainer == null) {
+                            findNavController().navigate(
+                                R.id.action_login_to_password_entry,
+                                PasswordEnteryFragment.passPhoneNumber(binding.viewEtPhone.et_phone.text.toString())
+                            )
+                        }
                     }
 
                 }

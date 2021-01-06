@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network.request
+package com.rumbl.rumbl_pt.network.request
 
 import android.os.Parcelable
 import com.squareup.moshi.JsonClass

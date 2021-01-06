@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.rumbl.bases.viewmodel.IViewModel
 import com.rumbl.rumbl_pt.bases.states.IResult
 import com.rumbl.rumbl_pt.bases.states.Result
-import com.rumbl.rumbl_pt.bases.network.IErrorHandling
-import com.rumbl.rumbl_pt.bases.network.NetworkErrorHandlingImp
+import com.rumbl.rumbl_pt.network.IErrorHandling
+import com.rumbl.rumbl_pt.network.NetworkErrorHandlingImp
 import com.rumbl.rumbl_pt.utils.IoLoadingTransformation
 import com.rumbl.rumbl_pt.utils.IoTransformation
 import io.reactivex.rxjava3.core.Completable

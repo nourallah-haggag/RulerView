@@ -1,8 +1,8 @@
 package com.rumbl.rumbl_pt.di
 
-import com.rumbl.rumbl_pt.bases.network.INetwork
-import com.rumbl.rumbl_pt.bases.network.NetworkImp
-import com.rumbl.rumbl_pt.bases.network.services.AuthApi
+import com.rumbl.rumbl_pt.network.INetwork
+import com.rumbl.rumbl_pt.network.NetworkImp
+import com.rumbl.rumbl_pt.network.services.AuthApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.android.ext.koin.androidContext

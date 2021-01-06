@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network.error
+package com.rumbl.rumbl_pt.network.error
 
 /**
  * Created by Mohamed Shalan on 6/22/20.

@@ -1,6 +1,7 @@
-package com.rumbl.rumbl_pt.bases.network.response
+package com.rumbl.rumbl_pt.network.response
 
 import android.os.Parcelable
+import com.rumbl.rumbl_pt.bases.models.IUser
 import com.squareup.moshi.JsonClass
 import kotlinx.android.parcel.Parcelize
 
@@ -14,14 +15,14 @@ data class AuthResponse(
 @JsonClass(generateAdapter = true)
 @Parcelize
 data class Trainer(
-    val id: Int,
+    override val id: Long,
     val name: String,
-    val phone: Int,
-    val email: String,
-    val gender: Int,
+    val phone: Int?,
+    val email: String?,
+    val gender: Int?,
     val personal_photo: String?,
     val level: Level?
-) : Parcelable
+) : Parcelable, IUser
 
 @JsonClass(generateAdapter = true)
 @Parcelize

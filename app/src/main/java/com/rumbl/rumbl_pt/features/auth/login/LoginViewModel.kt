@@ -1,11 +1,11 @@
 package com.rumbl.rumbl_pt.features.auth.login
 
 import com.rumbl.rumbl_pt.bases.SingleLiveEvent
-import com.rumbl.rumbl_pt.bases.network.error.AuthErrorHandling
-import com.rumbl.rumbl_pt.bases.network.response.AuthResponse
-import com.rumbl.rumbl_pt.bases.repo.AuthRepo
 import com.rumbl.rumbl_pt.bases.states.IResult
 import com.rumbl.rumbl_pt.bases.viewmodel.BaseViewModel
+import com.rumbl.rumbl_pt.network.error.AuthErrorHandling
+import com.rumbl.rumbl_pt.network.response.AuthResponse
+import com.rumbl.rumbl_pt.repo.AuthRepo
 
 class LoginViewModel(private val repo: AuthRepo) : BaseViewModel() {
     private val loginSingleLiveEvent: SingleLiveEvent<IResult<AuthResponse>> by lazy {

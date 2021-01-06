@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.repo
+package com.rumbl.rumbl_pt.repo
 
 /**
  * Created by Mohamed Shalan on 4/18/20.

@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 import androidx.lifecycle.MutableLiveData
 import com.rumbl.rumbl_pt.bases.states.IResult

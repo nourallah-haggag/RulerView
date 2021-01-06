@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 import org.koin.core.KoinComponent
 import retrofit2.Retrofit

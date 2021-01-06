@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 import io.reactivex.rxjava3.functions.Consumer
 import org.koin.core.KoinComponent

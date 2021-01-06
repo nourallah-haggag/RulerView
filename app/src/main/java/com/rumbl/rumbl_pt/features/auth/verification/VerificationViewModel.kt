@@ -1,8 +1,7 @@
 package com.rumbl.rumbl_pt.features.auth.verification
 
 import com.rumbl.rumbl_pt.bases.SingleLiveEvent
-import com.rumbl.rumbl_pt.bases.network.response.AuthResponse
-import com.rumbl.rumbl_pt.bases.repo.AuthRepo
+import com.rumbl.rumbl_pt.repo.AuthRepo
 import com.rumbl.rumbl_pt.bases.states.IResult
 import com.rumbl.rumbl_pt.bases.viewmodel.BaseViewModel
 

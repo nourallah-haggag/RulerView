@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 /**
  * Created by Mohamed Shalan on 6/22/20.

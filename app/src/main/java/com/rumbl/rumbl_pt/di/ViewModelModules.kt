@@ -16,5 +16,5 @@ val viewmodelModules = module {
     viewModel { AuthViewModel() }
     viewModel { LoginViewModel(repo = get()) }
     viewModel { VerificationViewModel(repo = get()) }
-    viewModel { PasswordEntryViewModel() }
+    viewModel { PasswordEntryViewModel(repo = get()) }
 }

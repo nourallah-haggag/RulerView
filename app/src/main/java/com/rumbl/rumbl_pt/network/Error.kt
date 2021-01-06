@@ -1,6 +1,6 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
-import com.rumbl.rumbl_pt.bases.network.error.IError
+import com.rumbl.rumbl_pt.network.error.IError
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

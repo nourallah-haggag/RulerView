@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network.interceptors
+package com.rumbl.rumbl_pt.network.interceptors
 
 import com.rumbl.rumbl_pt.bases.services.SessionService
 import okhttp3.Interceptor

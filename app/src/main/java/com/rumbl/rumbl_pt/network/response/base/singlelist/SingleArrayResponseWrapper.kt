@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.network.response.base.singlelist
+package com.rumbl.rumbl_pt.network.response.base.singlelist
 
 import com.squareup.moshi.JsonClass
 

@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.bases.repo
+package com.rumbl.rumbl_pt.repo
 
 import com.rumbl.rumbl_pt.bases.services.SerializationService
 import com.rumbl.rumbl_pt.bases.services.SessionService

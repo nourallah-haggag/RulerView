@@ -1,9 +1,9 @@
-package com.rumbl.rumbl_pt.bases.network
+package com.rumbl.rumbl_pt.network
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.rumbl.rumbl_pt.BuildConfig
-import com.rumbl.rumbl_pt.bases.network.interceptors.DefaultInterceptor
+import com.rumbl.rumbl_pt.network.interceptors.DefaultInterceptor
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
