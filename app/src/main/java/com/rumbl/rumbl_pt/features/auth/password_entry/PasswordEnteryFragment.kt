@@ -42,7 +42,7 @@ class PasswordEnteryFragment : BaseFragment<PasswordEntryViewModel, FragmentPass
 
     private fun isPasswordValid(): Boolean {
         return if (binding.etPassword.text.toString()
-                .isBlank() || binding.etPassword.text.toString().length < 8
+                .isBlank() || binding.etPassword.text.toString().length < 5
         ) {
             Toast.makeText(requireContext(), R.string.password_length_error, Toast.LENGTH_SHORT)
                 .show()

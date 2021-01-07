@@ -29,5 +29,6 @@
     <string name="schedule_tab">Schedule</string>
     <string name="notifications_tab">Notifications</string>
     <string name="profile_tab">Profile</string>
+    <string name="accept_txt">Accept</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.rumbl.rumbl_pt.di
 import com.rumbl.rumbl_pt.network.INetwork
 import com.rumbl.rumbl_pt.network.NetworkImp
 import com.rumbl.rumbl_pt.network.services.AuthApi
+import com.rumbl.rumbl_pt.network.services.SessionsApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import org.koin.android.ext.koin.androidContext
@@ -23,4 +24,5 @@ val networkModules = module {
 
 val networkServiceModule = module {
     factory { get<INetwork>().createService(AuthApi::class.java) }
+    factory { get<INetwork>().createService(SessionsApi::class.java) }
 }

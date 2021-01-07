@@ -31,4 +31,7 @@
     <color name="black">#000000</color>
     <color name="cool_grey">#b1b4bb</color>
     <color name="warm_grey">#707070</color>
+    <color name="txt_dark_gray">#606060</color>
+    <color name="txt_medium_gray">#909090</color>
+    <color name="txt_white_gray">#D5D5D5</color>
 </resources>

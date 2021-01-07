@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_10dp_in"
+    android:layout_marginEnd="@dimen/_10dp_in"
+    android:layout_marginBottom="@dimen/_15dp_in"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:cardCornerRadius="@dimen/_10dp_in"
+    app:cardElevation="@dimen/_5dp_in">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/_10dp_in">
+
+        <TextView
+            android:id="@+id/tv_session_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:layout_marginTop="@dimen/_15dp_in"
+            android:layout_marginEnd="@dimen/_15dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp_in"
+            app:layout_constraintEnd_toStartOf="@id/tv_accept_session"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Consultation" />
+
+        <TextView
+            android:id="@+id/tv_accept_session"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:text="@string/accept_txt"
+            app:layout_constraintBottom_toBottomOf="@id/tv_session_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_session_type" />
+
+
+        <View
+            android:id="@+id/divider_session_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:layout_marginTop="@dimen/_10dp_in"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:background="@color/txt_medium_gray"
+            app:layout_constraintTop_toBottomOf="@id/tv_session_type" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_iv_trainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10dp_in"
+            app:cardCornerRadius="@dimen/_10dp_in"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintStart_toStartOf="@id/tv_session_type"
+            app:layout_constraintTop_toBottomOf="@id/divider_session_horizontal"
+            app:layout_constraintWidth_percent="0.21">
+
+            <ImageView
+                android:id="@+id/iv_trainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_rumbl_logo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_trainer_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/sfprodisplay_medium"
+            android:singleLine="true"
+            android:text="Mohamed Mansour"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sp_in"
+            app:layout_constraintBottom_toTopOf="@id/tv_session_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_iv_trainer"
+            app:layout_constraintTop_toTopOf="@id/card_iv_trainer" />
+
+        <TextView
+            android:id="@+id/tv_session_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:textColor="@color/hype_blue"
+            android:textSize="@dimen/_11sp_in"
+            app:layout_constraintBottom_toTopOf="@id/tv_session_time"
+            app:layout_constraintStart_toStartOf="@id/tv_trainer_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_trainer_name"
+            tools:text="Al-Yasmeen District, Riyadh" />
+
+
+        <TextView
+            android:id="@+id/tv_session_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:textColor="@color/gc_red"
+            android:textSize="@dimen/_12sp_in"
+            app:layout_constraintBottom_toBottomOf="@id/tv_session_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="03:00 PM" />
+
+        <TextView
+            android:id="@+id/tv_session_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/sfprodisplay_medium"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sp_in"
+            app:layout_constraintBottom_toBottomOf="@id/card_iv_trainer"
+            app:layout_constraintEnd_toStartOf="@id/tv_session_time"
+            app:layout_constraintStart_toStartOf="@id/tv_trainer_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_session_location"
+            tools:text="Thursday 10 nov 2020 at" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
