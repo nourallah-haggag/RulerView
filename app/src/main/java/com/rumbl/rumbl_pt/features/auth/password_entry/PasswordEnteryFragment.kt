@@ -8,6 +8,7 @@ import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentPasswordEntryBinding
+import com.rumbl.rumbl_pt.home.MainActivity
 import com.rumbl.rumbl_pt.network.Constants
 import kotlinx.android.synthetic.main.fragment_password_entry.*
 
@@ -59,6 +60,7 @@ class PasswordEnteryFragment : BaseFragment<PasswordEntryViewModel, FragmentPass
                         progressLogin.visibility = View.GONE
                         btnLogin.visibility = View.VISIBLE
                     }
+                    MainActivity.start(requireContext())
                 }
                 CommonStatusImp.LOADING -> {
                     binding.apply {

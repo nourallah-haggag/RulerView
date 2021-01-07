@@ -35,6 +35,11 @@
         <item name="windowMinWidthMinor">80%</item>
     </style>
 
+    <style name="AppTheme.BottomNavigationView" parent="AppTheme">
+        <item name="colorPrimary">@color/gc_red</item>
+        <item name="android:textColorSecondary">@color/lightgray</item>
+    </style>
+
     <style name="SplashThem" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>

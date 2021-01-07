@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home_tab"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/requestsFragment"
+        android:icon="@drawable/ic_requests"
+        android:title="@string/requests_tab"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/scheduleFragment"
+        android:icon="@drawable/ic_schedule"
+        android:title="@string/schedule_tab"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/notifications_tab"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile_tab"
+        app:showAsAction="ifRoom" />
+
+</menu>

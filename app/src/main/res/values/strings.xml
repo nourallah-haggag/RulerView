@@ -24,4 +24,10 @@
     <string name="unknown_error_occurred">Unknown error has occurred</string>
     <string name="password_length_error">password cannot be less than 8 characters</string>
     <string name="fill_all_fields">Please fill all the fields</string>
+    <string name="home_tab">Home</string>
+    <string name="requests_tab">Requests</string>
+    <string name="schedule_tab">Schedule</string>
+    <string name="notifications_tab">Notifications</string>
+    <string name="profile_tab">Profile</string>
+
 </resources>
