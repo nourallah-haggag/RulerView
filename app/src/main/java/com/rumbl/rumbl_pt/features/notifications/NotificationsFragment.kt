@@ -1,11 +1,14 @@
 package com.rumbl.rumbl_pt.features.notifications
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentNotificationsBinding
+import com.rumbl.rumbl_pt.features.notifications.notifications_list.NotificationAdapter
+import kotlinx.android.synthetic.main.fragment_notifications.*
 
 class NotificationsFragment : BaseFragment<NotificationsViewModel, FragmentNotificationsBinding>(
     layoutId = R.layout.fragment_notifications,
@@ -20,10 +23,23 @@ class NotificationsFragment : BaseFragment<NotificationsViewModel, FragmentNotif
         viewmodel.observeNotificationsSingleLiveEvent().observe(viewLifecycleOwner, {
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
+                    lottie_loading_anim.visibility = View.GONE
+                    tv_notification_title.visibility = View.VISIBLE
+                    rv_notifications.visibility = View.VISIBLE
+                    it.fetchData()?.let { notifications ->
+                        val notificationsAdapter = NotificationAdapter(notifications)
+                        rv_notifications.adapter = notificationsAdapter
+                    }
                 }
                 CommonStatusImp.LOADING -> {
+                    lottie_loading_anim.visibility = View.VISIBLE
+                    tv_notification_title.visibility = View.GONE
+                    rv_notifications.visibility = View.GONE
                 }
                 CommonStatusImp.ERROR -> {
+                    lottie_loading_anim.visibility = View.GONE
+                    tv_notification_title.visibility = View.VISIBLE
+                    rv_notifications.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
                         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
                     }

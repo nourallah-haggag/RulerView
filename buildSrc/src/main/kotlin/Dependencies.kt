@@ -131,4 +131,6 @@ object Dependencies {
 
 	val lottie = "com.airbnb.android:lottie:3.6.0"
 
+	val circularImageView = "de.hdodenhof:circleimageview:3.1.0"
+
 }

@@ -37,6 +37,7 @@
     <string name="trainer_name">Hello, %s</string>
     <string name="loading">loading...</string>
     <string name="requests">Requests</string>
+    <string name="notifications">Notifications</string>
 
 
 </resources>

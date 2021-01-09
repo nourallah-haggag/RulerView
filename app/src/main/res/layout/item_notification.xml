@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_notification"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_20dp_in"
+        android:layout_marginTop="@dimen/_15dp_in"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.08"
+        tools:src="@drawable/ic_rumbl_logo" />
+
+    <TextView
+        android:id="@+id/tv_notification_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:layout_marginEnd="@dimen/_20dp_in"
+        android:fontFamily="@font/circularstd_medium"
+        android:textAlignment="viewStart"
+        android:textColor="@color/txt_medium_gray"
+        android:textSize="@dimen/_13sp_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_notification"
+        app:layout_constraintTop_toTopOf="@id/iv_notification"
+        tools:text="Session Cancellation" />
+
+    <TextView
+        android:id="@+id/tv_notification_body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5dp_in"
+        android:fontFamily="@font/circularstd_book"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sp_in"
+        app:layout_constraintEnd_toEndOf="@id/tv_notification_title"
+        app:layout_constraintStart_toStartOf="@id/tv_notification_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_notification_title"
+        tools:text="Omar Abd ElKafy cancelled the consultation session on Thursday 12 Nov 2020 at 03:00 PM" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_dp"
+        android:layout_marginTop="@dimen/_15dp_in"
+        android:background="@color/txt_medium_gray"
+        app:layout_constraintTop_toBottomOf="@id/tv_notification_body" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

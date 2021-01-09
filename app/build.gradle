@@ -127,6 +127,9 @@ dependencies {
 
     // lottie animation
     implementation Dependencies.lottie
+
+    // circular image view
+    implementation Dependencies.circularImageView
 }
 repositories {
     mavenCentral()
