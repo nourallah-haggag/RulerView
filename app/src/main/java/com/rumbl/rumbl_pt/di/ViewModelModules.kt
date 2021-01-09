@@ -26,7 +26,7 @@ val viewmodelModules = module {
     viewModel { HomeViewModel(repo = get()) }
     viewModel { RequestsViewModel(repo = get()) }
     viewModel { ScheculeViewModel() }
-    viewModel { NotificationsViewModel() }
+    viewModel { NotificationsViewModel(repo = get()) }
     viewModel { ProfileViewModel() }
     viewModel { MainViewModel() }
 }
