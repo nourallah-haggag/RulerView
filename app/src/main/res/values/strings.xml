@@ -35,6 +35,7 @@
     <string name="training_session">Training Session</string>
     <string name="consultation_session">Consultation Session</string>
     <string name="trainer_name">Hello, %s</string>
+    <string name="loading">loading...</string>
 
 
 </resources>

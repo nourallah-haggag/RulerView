@@ -124,6 +124,9 @@ dependencies {
 
     // sms code verification
     implementation Dependencies.pinEt
+
+    // lottie animation
+    implementation Dependencies.lottie
 }
 repositories {
     mavenCentral()

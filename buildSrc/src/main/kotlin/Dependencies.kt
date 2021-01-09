@@ -129,4 +129,6 @@ object Dependencies {
 
 	val pinEt = "com.alimuzaffar.lib:pinentryedittext:2.0.6"
 
+	val lottie = "com.airbnb.android:lottie:3.6.0"
+
 }

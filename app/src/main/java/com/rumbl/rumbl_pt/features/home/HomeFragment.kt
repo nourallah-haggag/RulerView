@@ -1,6 +1,7 @@
 package com.rumbl.rumbl_pt.features.home
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
@@ -27,6 +28,9 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
         viewmodel.observeSessionsEvent().observe(viewLifecycleOwner, {
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
+                    lottie_loading_anim.visibility = View.GONE
+                    rv_home_sessions.visibility = View.VISIBLE
+                    tv_trainer_name.visibility = View.VISIBLE
                     val homeModelsList = mutableListOf<IHomeScreenModel>()
                     it.fetchData()?.let { sessions ->
                         sessions.first.apply {
@@ -41,8 +45,14 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
                     }
                 }
                 CommonStatusImp.LOADING -> {
+                    lottie_loading_anim.visibility = View.VISIBLE
+                    rv_home_sessions.visibility = View.GONE
+                    tv_trainer_name.visibility = View.GONE
                 }
                 CommonStatusImp.ERROR -> {
+                    lottie_loading_anim.visibility = View.GONE
+                    rv_home_sessions.visibility = View.VISIBLE
+                    tv_trainer_name.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
                         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
                     }
