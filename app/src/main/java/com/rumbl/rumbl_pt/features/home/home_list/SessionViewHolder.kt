@@ -13,7 +13,7 @@ import org.koin.core.inject
 
 class SessionViewHolder(itemView: View) : HomeItemsViewHolder(itemView), KoinComponent {
     private val imageLoadingService: ImageLoadingService by inject()
-    override fun <T> bind(item: T, homeItemsInteractionListener: HomeItemsInteractionListener) {
+    override fun <T> bind(item: T, homeItemsInteractionListener: HomeItemsInteractionListener?) {
         if (item is SessionsResponse) {
             with(itemView)
             {

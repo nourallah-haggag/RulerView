@@ -6,7 +6,7 @@ import com.rumbl.rumbl_pt.models.LatestSessionsRequests
 import kotlinx.android.synthetic.main.item_latest_requests.view.*
 
 class LatestRequestsItemViewHolder(itemView: View) : HomeItemsViewHolder(itemView) {
-    override fun <T> bind(item: T, homeItemsInteractionListener: HomeItemsInteractionListener) {
+    override fun <T> bind(item: T, homeItemsInteractionListener: HomeItemsInteractionListener?) {
         if (item is LatestSessionsRequests) {
             with(itemView)
             {

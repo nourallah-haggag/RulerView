@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_request_screen_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp_in"
+            android:layout_marginTop="@dimen/_55dp_in"
+            android:layout_marginEnd="@dimen/_40dp_in"
+            android:fontFamily="@font/circularstd_bold"
+            android:text="@string/requests"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_34sp_in"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_requested_sessions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20dp_in"
+            android:paddingStart="@dimen/_13dp_in"
+            android:paddingEnd="@dimen/_13dp_in"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request_screen_title"
+            tools:listitem="@layout/item_session" />
+
+        <include
+            android:id="@+id/lottie_loading_anim"
+            layout="@layout/layout_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

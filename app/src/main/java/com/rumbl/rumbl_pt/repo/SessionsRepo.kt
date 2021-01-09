@@ -13,4 +13,6 @@ class SessionsRepo(private val api: SessionsApi) : IRepo {
             Pair(t1, t2)
         })
 
+    fun getRequestedSessions() = getSessionsByStatus(1)
+
 }

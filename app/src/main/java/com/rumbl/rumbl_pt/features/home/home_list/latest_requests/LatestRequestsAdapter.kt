@@ -10,7 +10,7 @@ import com.rumbl.rumbl_pt.network.response.SessionsResponse
 
 class LatestRequestsAdapter(
     private val sessions: List<SessionsResponse>,
-    private val homeItemsInteractionListener: HomeItemsInteractionListener
+    private val homeItemsInteractionListener: HomeItemsInteractionListener?=null
 ) :
     RecyclerView.Adapter<SessionViewHolder>() {
     override fun onCreateViewHolder(
