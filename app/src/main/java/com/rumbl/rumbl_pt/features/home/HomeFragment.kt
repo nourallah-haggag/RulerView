@@ -6,28 +6,38 @@ import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentHomeBinding
+import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsAdapter
+import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsInteractionListener
+import com.rumbl.rumbl_pt.models.HeaderItem
+import com.rumbl.rumbl_pt.models.IHomeScreenModel
+import com.rumbl.rumbl_pt.models.LatestSessionsRequests
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
     layoutId = R.layout.fragment_home,
     clazz = HomeViewModel::class
-) {
+), HomeItemsInteractionListener {
     override fun onCreateInit(savedInstanceState: Bundle?) {
         viewmodel.getRequestedAndUpcomingSessions()
         observeSessions()
+        tv_trainer_name.text = getString(R.string.trainer_name, viewmodel.getTrainerName())
     }
 
     private fun observeSessions() {
         viewmodel.observeSessionsEvent().observe(viewLifecycleOwner, {
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
-                    val homeModelsList = mutableListOf<HomeViewModel>()
+                    val homeModelsList = mutableListOf<IHomeScreenModel>()
                     it.fetchData()?.let { sessions ->
                         sessions.first.apply {
-
+                            homeModelsList.add(LatestSessionsRequests(this))
                         }
+                        homeModelsList.add(HeaderItem)
                         sessions.second.apply {
-
+                            homeModelsList.addAll(this)
                         }
+                        val homeItemsAdapter = HomeItemsAdapter(homeModelsList, this)
+                        rv_home_sessions.adapter = homeItemsAdapter
                     }
                 }
                 CommonStatusImp.LOADING -> {
@@ -39,5 +49,21 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
                 }
             }
         })
+    }
+
+    override fun onAllLatestSessionsClicked() {
+
+    }
+
+    override fun onAllUpcomingSessionsClicked() {
+
+    }
+
+    override fun onSessionItemClicked() {
+
+    }
+
+    override fun onAcceptSessionClicked() {
+
     }
 }

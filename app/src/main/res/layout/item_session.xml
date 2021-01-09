@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_10dp_in"
             android:text="@string/accept_txt"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@id/tv_session_type"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_session_type" />
@@ -89,16 +90,23 @@
             app:layout_constraintBottom_toTopOf="@id/tv_session_location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/card_iv_trainer"
-            app:layout_constraintTop_toTopOf="@id/card_iv_trainer" />
+            app:layout_constraintTop_toTopOf="@id/card_iv_trainer"
+            app:layout_constraintVertical_chainStyle="spread" />
 
         <TextView
             android:id="@+id/tv_session_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20dp_in"
+            android:drawableStart="@drawable/ic_navigate"
+            android:drawablePadding="@dimen/_5dp_in"
+            android:ellipsize="end"
             android:fontFamily="@font/sfprodisplay_bold"
+            android:lines="1"
             android:textColor="@color/hype_blue"
             android:textSize="@dimen/_11sp_in"
             app:layout_constraintBottom_toTopOf="@id/tv_session_time"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_trainer_name"
             app:layout_constraintTop_toBottomOf="@id/tv_trainer_name"
             tools:text="Al-Yasmeen District, Riyadh" />

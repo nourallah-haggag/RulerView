@@ -23,4 +23,8 @@ object Constants {
 	val WRONG_PHONE_OR_PASSWORD = "2002"
 
 	val DIDNOT_SET_PASSWORD = "2001"
+
+	const val ARABIC_LOCALE = "ar"
+
+	const val ENGLISH_LOCALE = "en"
 }

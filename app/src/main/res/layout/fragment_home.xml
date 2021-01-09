@@ -24,6 +24,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/_20dp_in"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/_20dp_in"
+            android:paddingEnd="@dimen/_20dp_in"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_trainer_name" />
