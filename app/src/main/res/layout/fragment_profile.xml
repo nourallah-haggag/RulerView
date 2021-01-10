@@ -1,9 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_account_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp_in"
+                android:layout_marginTop="@dimen/_55dp_in"
+                android:layout_marginEnd="@dimen/_40dp_in"
+                android:fontFamily="@font/circularstd_bold"
+                android:text="@string/my_account"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_34sp_in"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_trainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20dp_in"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_rumbl_logo"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintStart_toStartOf="@id/tv_account_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_account_title"
+                app:layout_constraintWidth_percent="0.25" />
+
+            <TextView
+                android:id="@+id/tv_trainer_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp_in"
+                android:layout_marginEnd="@dimen/_20dp_in"
+                android:fontFamily="@font/circularstd_bold"
+                android:text="@string/my_account"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20sp_in"
+                app:layout_constraintBottom_toTopOf="@id/iv_trainer_badge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_trainer"
+                app:layout_constraintTop_toTopOf="@id/iv_trainer"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <ImageView
+                android:id="@+id/iv_trainer_badge"
+                android:layout_width="@dimen/_20dp_in"
+                android:layout_height="@dimen/_20dp_in"
+                android:layout_marginTop="@dimen/_10dp_in"
+                android:src="@drawable/ic_rumbl_logo"
+                app:layout_constraintBottom_toBottomOf="@id/iv_trainer"
+                app:layout_constraintStart_toStartOf="@id/tv_trainer_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_trainer_name" />
+
+            <TextView
+                android:id="@+id/tv_trainer_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp_in"
+                android:fontFamily="@font/circularstd_book"
+                android:textSize="@dimen/_16sp_in"
+                app:layout_constraintBottom_toBottomOf="@id/iv_trainer_badge"
+                app:layout_constraintStart_toEndOf="@id/iv_trainer_badge"
+                app:layout_constraintTop_toTopOf="@id/iv_trainer_badge"
+                tools:text="Level One"
+                tools:textColor="@color/green" />
+
+            <TextView
+                android:id="@+id/tv_trainer_bio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25dp_in"
+                android:layout_marginEnd="@dimen/_20dp_in"
+                android:fontFamily="@font/circularstd_book"
+                android:textColor="@color/txt_medium_gray"
+                android:textSize="@dimen/_16sp_in"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/iv_trainer"
+                app:layout_constraintTop_toBottomOf="@id/iv_trainer"
+                tools:text="I’ve been working as a fitness coach for 6 years, “The difference between the impossible and the possible lies in a person’s determination.” —Tommy Lasorda”" />
+
+            <TextView
+                android:id="@+id/tv_certificates_expertise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp_in"
+                android:fontFamily="@font/sfprodisplay_bold"
+                android:text="@string/certificates_expertise"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20sp_in"
+                app:layout_constraintStart_toStartOf="@id/tv_trainer_bio"
+                app:layout_constraintTop_toBottomOf="@id/tv_trainer_bio" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_certificates_expertise"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15dp_in"
+                android:clipToPadding="false"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                app:chipSpacing="@dimen/_5dp_in"
+                app:layout_constraintEnd_toEndOf="@id/tv_trainer_bio"
+                app:layout_constraintStart_toStartOf="@id/tv_trainer_bio"
+                app:layout_constraintTop_toBottomOf="@id/tv_certificates_expertise" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

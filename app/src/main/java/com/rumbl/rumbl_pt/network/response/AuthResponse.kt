@@ -20,8 +20,12 @@ data class Trainer(
     val phone: Int?,
     val email: String?,
     val gender: Int?,
-    val personal_photo: String?,
-    val level: Level?
+    val bio: String?,
+    val profile_picture: String?,
+    val level: Level?,
+    val gallery: List<String>?,
+    val specifications: List<InfoItem>,
+    val certifications: List<InfoItem>
 ) : Parcelable, IUser
 
 @JsonClass(generateAdapter = true)
@@ -31,5 +35,12 @@ data class Level(
     val name: String,
     val color: String,
     val sort: Int
+) : Parcelable
+
+@JsonClass(generateAdapter = true)
+@Parcelize
+data class InfoItem(
+    val id: Int,
+    val name: String
 ) : Parcelable
 

@@ -38,6 +38,8 @@
     <string name="loading">loading...</string>
     <string name="requests">Requests</string>
     <string name="notifications">Notifications</string>
+    <string name="my_account">My Account</string>
+    <string name="certificates_expertise"><![CDATA[Certificates & expertise]]></string>
 
 
 </resources>

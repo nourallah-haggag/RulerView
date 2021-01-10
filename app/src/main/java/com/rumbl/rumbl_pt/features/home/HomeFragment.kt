@@ -36,9 +36,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
                         sessions.first.apply {
                             homeModelsList.add(LatestSessionsRequests(this))
                         }
-                        homeModelsList.add(HeaderItem)
                         sessions.second.apply {
-                            homeModelsList.addAll(this)
+                            if (this.isNotEmpty()) {
+                                homeModelsList.add(HeaderItem)
+                                homeModelsList.addAll(this)
+                            }
                         }
                         val homeItemsAdapter = HomeItemsAdapter(homeModelsList, this)
                         rv_home_sessions.adapter = homeItemsAdapter
