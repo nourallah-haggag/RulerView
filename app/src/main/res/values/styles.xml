@@ -45,4 +45,22 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="PtSessionDetailsHeaderText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/_18sp_in</item>
+        <item name="fontFamily">@font/sfprodisplay_bold</item>
+    </style>
+
+    <style name="PtSessionDetailsBodyText">
+        <item name="android:textColor">@color/txt_medium_gray</item>
+        <item name="android:textSize">@dimen/_15sp_in</item>
+        <item name="fontFamily">@font/sfprodisplay_regular</item>
+    </style>
+
+    <style name="UserProfileBodyText">
+        <item name="android:textColor">@color/txt_dark_gray</item>
+        <item name="android:textSize">@dimen/_15sp_in</item>
+        <item name="fontFamily">@font/sfprodisplay_regular</item>
+    </style>
+
 </resources>

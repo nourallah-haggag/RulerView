@@ -20,10 +20,18 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.rumbl.rumbl_pt.features.notifications.NotificationsFragment"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_notification_to_session_details"
+            app:destination="@id/sessionDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.rumbl.rumbl_pt.features.profile.ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/sessionDetailsFragment"
+        android:name="com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment"
+        tools:layout="@layout/fragment_session_details" />
 
 </navigation>

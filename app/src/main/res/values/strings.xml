@@ -41,6 +41,17 @@
     <string name="my_account">My Account</string>
     <string name="certificates_expertise"><![CDATA[Certificates & expertise]]></string>
     <string name="gallery">Gallery</string>
+    <string name="session_info">Session info</string>
+    <string name="location">Location</string>
+    <string name="navigate">Navigate</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="current_height">Current height</string>
+    <string name="current_weight">Current weight</string>
+    <string name="bmi">BMI</string>
+    <string name="dash_empty_placeholder">-</string>
+    <string name="date_and_time">Date and time</string>
+    <string name="no_of_sessions">Number of %s sessions with you</string>
 
 
 </resources>

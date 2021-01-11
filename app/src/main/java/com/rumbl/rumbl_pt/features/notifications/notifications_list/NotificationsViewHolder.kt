@@ -11,8 +11,11 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class NotificationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), KoinComponent {
-    val imageLoadingService: ImageLoadingService by inject()
-    fun bind(item: Notification) {
+    private val imageLoadingService: ImageLoadingService by inject()
+    fun bind(
+        item: Notification,
+        notificationsInteractionListener: NotificationsInteractionListener
+    ) {
         with(itemView)
         {
             tv_notification_title.text = item.title
@@ -36,6 +39,9 @@ class NotificationsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView
                         )
                     }
                 }
+            }
+            setOnClickListener {
+                notificationsInteractionListener.onNotificationItemClicked(item)
             }
         }
     }
