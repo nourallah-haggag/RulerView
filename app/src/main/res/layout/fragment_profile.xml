@@ -114,6 +114,43 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_certificates_expertise" />
 
 
+            <TextView
+                android:id="@+id/tv_gallery_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp_in"
+                android:fontFamily="@font/sfprodisplay_bold"
+                android:text="@string/gallery"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_20sp_in"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/tv_trainer_bio"
+                app:layout_constraintTop_toBottomOf="@id/chip_group_certificates_expertise"
+                tools:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15dp_in"
+                android:layout_marginBottom="@dimen/_30dp_in"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_20dp_in"
+                android:paddingEnd="@dimen/_70dp_in"
+                android:paddingBottom="@dimen/_10dp_in"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,360:145"
+                app:layout_constraintTop_toBottomOf="@id/tv_gallery_item"
+                app:layout_constraintWidth_percent="0.6"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_gallery_photo"
+                tools:visibility="visible" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

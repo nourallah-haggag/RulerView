@@ -6,11 +6,13 @@ import android.view.Gravity
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.google.android.material.chip.Chip
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.services.ImageLoadingService
 import com.rumbl.rumbl_pt.databinding.FragmentProfileBinding
+import com.rumbl.rumbl_pt.features.profile.list.TrainerGalleryAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -72,6 +74,16 @@ class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileBinding>(
                         )
                         iv_trainer_badge.setImageResource(R.drawable.ic_badge_level_three)
                     }
+                }
+            }
+            trainer.gallery?.let { photos ->
+                if (photos.isNotEmpty()) {
+                    tv_gallery_item.visibility = View.VISIBLE
+                    rv_gallery.visibility = View.VISIBLE
+                    val trainerGalleryAdapter = TrainerGalleryAdapter(photos)
+                    rv_gallery.adapter = trainerGalleryAdapter
+                    val pagerSnapHelper = PagerSnapHelper()
+                    pagerSnapHelper.attachToRecyclerView(rv_gallery)
                 }
             }
 
