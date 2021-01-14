@@ -13,7 +13,7 @@ class DayViewContainer(view: View) : ViewContainer(view) {
     @RequiresApi(Build.VERSION_CODES.O)
     fun bindView(
         day: CalendarDay,
-        dayItemIteractor: dayItemIteractor,
+        dayItemInteractionListener: DayItemInteractionListener,
         lastSelectedDay: CalendarDay?
     ) {
         with(view)
@@ -57,7 +57,7 @@ class DayViewContainer(view: View) : ViewContainer(view) {
                 }
             }
             view.setOnClickListener {
-                dayItemIteractor.onDaySelected(day)
+                dayItemInteractionListener.onDaySelected(day)
             }
 
         }

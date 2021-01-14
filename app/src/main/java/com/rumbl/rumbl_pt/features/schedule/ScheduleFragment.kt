@@ -21,7 +21,7 @@ import java.util.*
 class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding>(
     layoutId = R.layout.fragment_schedule,
     clazz = ScheculeViewModel::class
-), dayItemIteractor {
+), DayItemInteractionListener {
     private var lastSelectedDay: CalendarDay? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
