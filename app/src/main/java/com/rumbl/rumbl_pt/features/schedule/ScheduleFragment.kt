@@ -3,6 +3,7 @@ package com.rumbl.rumbl_pt.features.schedule
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.utils.Size
@@ -81,6 +82,9 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
                     binding.apply {
                         lottieLoadingAnim.visibility = View.GONE
                         rvSessions.visibility = View.VISIBLE
+                    }
+                    it.fetchError()?.let { error ->
+                        Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
