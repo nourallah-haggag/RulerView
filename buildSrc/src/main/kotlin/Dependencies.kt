@@ -133,4 +133,6 @@ object Dependencies {
 
 	val circularImageView = "de.hdodenhof:circleimageview:3.1.0"
 
+	val calendar = "com.github.kizitonwose:CalendarView:1.0.1"
+
 }

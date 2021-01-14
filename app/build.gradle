@@ -130,6 +130,8 @@ dependencies {
 
     // circular image view
     implementation Dependencies.circularImageView
+
+    implementation Dependencies.calendar
 }
 repositories {
     mavenCentral()

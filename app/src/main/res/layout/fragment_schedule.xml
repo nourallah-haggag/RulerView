@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_schedule_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp_in"
+            android:layout_marginTop="@dimen/_55dp_in"
+            android:layout_marginEnd="@dimen/_40dp_in"
+            android:fontFamily="@font/circularstd_bold"
+            android:text="@string/schedule"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_34sp_in"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.kizitonwose.calendarview.CalendarView
+            android:id="@+id/calendar_sesssions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15dp_in"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/_20dp_in"
+            android:paddingEnd="@dimen/_20dp_in"
+            app:cv_dayViewResource="@layout/calendar_day_resource"
+            app:cv_hasBoundaries="false"
+            app:cv_inDateStyle="firstMonth"
+            app:cv_maxRowCount="1"
+            app:cv_orientation="horizontal"
+            app:cv_scrollMode="continuous"
+            app:layout_constraintTop_toBottomOf="@id/tv_schedule_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_sessions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_25dp_in"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/_13dp_in"
+            android:paddingEnd="@dimen/_13dp_in"
+            android:paddingBottom="@dimen/_30dp_in"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_sesssions"
+            tools:listitem="@layout/item_session" />
+
+        <include
+            android:id="@+id/lottie_loading_anim"
+            layout="@layout/layout_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_sesssions" />
+
+        <include
+            android:id="@+id/lottie_no_results_anim"
+            layout="@layout/layout_no_results"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar_sesssions" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_day_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_5dp_in"
+    android:background="@color/white"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_10dp_in"
+    app:strokeColor="@color/cool_grey"
+    app:strokeWidth="@dimen/one_dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/circularstd_book"
+            android:gravity="start"
+            android:lines="1"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp_in"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="today" />
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:layout_marginTop="@dimen/_5dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/circularstd_book"
+            android:gravity="start"
+            android:lines="1"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp_in"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Jan" />
+
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp_in"
+            android:ellipsize="end"
+            android:fontFamily="@font/circularstd_book"
+            android:gravity="start"
+            android:lines="1"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp_in"
+            app:layout_constraintTop_toBottomOf="@id/tv_month"
+            tools:text="Jan" />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/two_in"
+            android:layout_marginStart="@dimen/_5dp_in"
+            android:layout_marginTop="@dimen/_5dp_in"
+            android:layout_marginEnd="@dimen/_5dp_in"
+            android:background="@color/cool_grey"
+            app:layout_constraintTop_toBottomOf="@id/tv_day" />
+
+        <TextView
+            android:id="@+id/calendarDayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/circularstd_bold"
+            android:gravity="center"
+            android:textColor="@color/warm_grey"
+            android:textSize="@dimen/_30sp_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_year"
+            app:layout_constraintVertical_bias="0.45"
+            tools:text="22" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

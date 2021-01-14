@@ -52,6 +52,8 @@
     <string name="dash_empty_placeholder">-</string>
     <string name="date_and_time">Date and time</string>
     <string name="no_of_sessions">Number of %s sessions with you</string>
+    <string name="schedule">Schedule</string>
+    <string name="no_results">No results</string>
 
 
 </resources>

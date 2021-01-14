@@ -26,7 +26,7 @@ val viewmodelModules = module {
     viewModel { PasswordEntryViewModel(repo = get()) }
     viewModel { HomeViewModel(repo = get()) }
     viewModel { RequestsViewModel(repo = get()) }
-    viewModel { ScheculeViewModel() }
+    viewModel { ScheculeViewModel(repo = get()) }
     viewModel { NotificationsViewModel(repo = get()) }
     viewModel { ProfileViewModel(repo = get()) }
     viewModel { MainViewModel() }

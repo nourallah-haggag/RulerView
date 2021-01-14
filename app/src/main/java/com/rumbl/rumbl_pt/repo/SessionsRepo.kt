@@ -15,4 +15,8 @@ class SessionsRepo(private val api: SessionsApi) : IRepo {
 
     fun getRequestedSessions() = getSessionsByStatus(1)
 
+    fun getSessionsByDate(date: String) = api.getSessionsByDate(date).map {
+        it.data
+    }
+
 }

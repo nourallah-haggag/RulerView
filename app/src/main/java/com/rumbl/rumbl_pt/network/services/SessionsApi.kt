@@ -10,4 +10,7 @@ interface SessionsApi {
 
     @GET("pt/get-sessions")
     fun getSessionsByStatus(@Query("status") status: Int): Single<BaseWrapper<List<SessionsResponse>>>
+
+    @GET("pt/get-sessions")
+    fun getSessionsByDate(@Query("date") date: String): Single<BaseWrapper<List<SessionsResponse>>>
 }
