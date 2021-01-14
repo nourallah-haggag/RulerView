@@ -1,6 +1,8 @@
 package com.rumbl.rumbl_pt.features.schedule
 
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
 import com.kizitonwose.calendarview.model.CalendarDay
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.layout_loading.view.*
 import java.time.YearMonth
 import java.time.temporal.WeekFields
 import java.util.*
+
 
 class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding>(
     layoutId = R.layout.fragment_schedule,
@@ -33,7 +36,7 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
         binding.apply {
             calendarSesssions.setup(currentMonth, lastMonth, firstDayOfWeek)
             calendarSesssions.scrollToMonth(currentMonth)
-            calendarSesssions.daySize = Size(350, 450)
+            calendarSesssions.daySize = Size(convertDpToPx(100f), convertDpToPx(130f))
             calendarSesssions.dayBinder = DayViewAdapter(this@ScheduleFragment, lastSelectedDay)
         }
         observeSessionsLiveEvent()
@@ -48,6 +51,15 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
             year
             viewmodel.fetchSessionsByDate("$year-$monthValue-$dayOfMonth")
         }
+    }
+
+    private fun convertDpToPx(dp: Float): Int {
+        val r: Resources = resources
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            r.displayMetrics
+        ).toInt()
     }
 
     private fun observeSessionsLiveEvent() {

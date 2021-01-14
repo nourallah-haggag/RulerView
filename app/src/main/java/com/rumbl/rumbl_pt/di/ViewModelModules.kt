@@ -10,6 +10,7 @@ import com.rumbl.rumbl_pt.features.profile.ProfileViewModel
 import com.rumbl.rumbl_pt.features.requests.RequestsViewModel
 import com.rumbl.rumbl_pt.features.schedule.ScheculeViewModel
 import com.rumbl.rumbl_pt.features.session_details.SessionDetailsViewModel
+import com.rumbl.rumbl_pt.features.splash.SplashViewModel
 import com.rumbl.rumbl_pt.home.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -31,4 +32,5 @@ val viewmodelModules = module {
     viewModel { ProfileViewModel(repo = get()) }
     viewModel { MainViewModel() }
     viewModel { SessionDetailsViewModel() }
+    viewModel { SplashViewModel(repo = get()) }
 }

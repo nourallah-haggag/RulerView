@@ -16,17 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="UnusedAttribute">
+
         <activity
             android:name=".features.auth.AuthActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/SplashThem"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".features.splash.SplashActivity"
+            android:theme="@style/SplashThem"
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".home.MainActivity"
             android:screenOrientation="sensorPortrait" />

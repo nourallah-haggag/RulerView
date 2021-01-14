@@ -81,7 +81,7 @@
             android:fontFamily="@font/circularstd_bold"
             android:gravity="center"
             android:textColor="@color/warm_grey"
-            android:textSize="@dimen/_30sp_in"
+            android:textSize="@dimen/_22sp_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
