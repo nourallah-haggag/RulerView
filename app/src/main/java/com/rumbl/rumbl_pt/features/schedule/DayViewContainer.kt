@@ -1,8 +1,6 @@
 package com.rumbl.rumbl_pt.features.schedule
 
-import android.os.Build
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.ui.ViewContainer
@@ -10,7 +8,6 @@ import com.rumbl.rumbl_pt.R
 import kotlinx.android.synthetic.main.calendar_day_resource.view.*
 
 class DayViewContainer(view: View) : ViewContainer(view) {
-    @RequiresApi(Build.VERSION_CODES.O)
     fun bindView(
         day: CalendarDay,
         dayItemInteractionListener: DayItemInteractionListener,

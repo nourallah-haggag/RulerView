@@ -135,4 +135,6 @@ object Dependencies {
 
 	val calendar = "com.github.kizitonwose:CalendarView:1.0.1"
 
+	val dateTime = "com.jakewharton.threetenabp:threetenabp:1.2.1"
+
 }

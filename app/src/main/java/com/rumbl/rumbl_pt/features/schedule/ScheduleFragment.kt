@@ -1,10 +1,8 @@
 package com.rumbl.rumbl_pt.features.schedule
 
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.utils.Size
 import com.kizitonwose.calendarview.utils.yearMonth
@@ -28,7 +26,6 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
     private var loadingView: View? = null
     private var noResultsView: View? = null
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateInit(savedInstanceState: Bundle?) {
         val currentMonth = YearMonth.now()
         val lastMonth = currentMonth.plusMonths(3)
@@ -42,7 +39,6 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
         observeSessionsLiveEvent()
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onDaySelected(selectedDay: CalendarDay) {
         lastSelectedDay = selectedDay
         calendar_sesssions.dayBinder = DayViewAdapter(this@ScheduleFragment, lastSelectedDay)
