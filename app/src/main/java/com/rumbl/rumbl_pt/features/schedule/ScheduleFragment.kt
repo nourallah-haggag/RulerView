@@ -23,7 +23,10 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
     layoutId = R.layout.fragment_schedule,
     clazz = ScheculeViewModel::class
 ), DayItemInteractionListener {
+
     private var lastSelectedDay: CalendarDay? = null
+    private var loadingView: View? = null
+    private var noResultsView: View? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateInit(savedInstanceState: Bundle?) {
@@ -57,13 +60,19 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
                 CommonStatusImp.SUCCESS -> {
                     it.fetchData()?.let { sessions ->
                         if (sessions.isEmpty()) {
-                            binding.lottieNoResultsAnim.visibility = View.VISIBLE
-                            binding.lottieLoadingAnim.visibility = View.GONE
-                            binding.rvSessions.visibility = View.GONE
+                            binding.apply {
+                                if (noResultsView == null) {
+                                    noResultsView = lottieNoResultsAnimStub.viewStub?.inflate()
+                                } else {
+                                    noResultsView?.visibility = View.VISIBLE
+                                }
+                                loadingView?.visibility = View.GONE
+                                rvSessions.visibility = View.GONE
+                            }
 
                         } else {
                             binding.apply {
-                                lottieLoadingAnim.visibility = View.GONE
+                                loadingView?.visibility = View.GONE
                                 rvSessions.visibility = View.VISIBLE
                             }
                             val adapter = LatestRequestsAdapter(sessions)
@@ -73,14 +82,18 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
                 }
                 CommonStatusImp.LOADING -> {
                     binding.apply {
-                        lottieLoadingAnim.visibility = View.VISIBLE
-                        lottieNoResultsAnim.visibility = View.GONE
+                        if (loadingView == null) {
+                            loadingView = lottieLoadingAnimStub.viewStub?.inflate()
+                        } else {
+                            loadingView?.visibility = View.VISIBLE
+                        }
+                        noResultsView?.visibility = View.GONE
                         rvSessions.visibility = View.GONE
                     }
                 }
                 CommonStatusImp.ERROR -> {
                     binding.apply {
-                        lottieLoadingAnim.visibility = View.GONE
+                        loadingView?.visibility = View.GONE
                         rvSessions.visibility = View.VISIBLE
                     }
                     it.fetchError()?.let { error ->

@@ -52,23 +52,23 @@
             app:layout_constraintTop_toBottomOf="@id/calendar_sesssions"
             tools:listitem="@layout/item_session" />
 
-        <include
-            android:id="@+id/lottie_loading_anim"
-            layout="@layout/layout_loading"
+        <ViewStub
+            android:id="@+id/lottie_loading_anim_stub"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
+            android:inflatedId="@+id/lottie_loading_anim"
+            android:layout="@layout/layout_loading"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/calendar_sesssions" />
 
-        <include
-            android:id="@+id/lottie_no_results_anim"
-            layout="@layout/layout_no_results"
+        <ViewStub
+            android:id="@+id/lottie_no_results_anim_stub"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
+            android:inflatedId="@+id/lottie_no_results_anim"
+            android:layout="@layout/layout_no_results"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
