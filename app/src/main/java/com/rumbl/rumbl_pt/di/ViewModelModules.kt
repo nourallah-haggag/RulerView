@@ -31,6 +31,6 @@ val viewmodelModules = module {
     viewModel { NotificationsViewModel(repo = get()) }
     viewModel { ProfileViewModel(repo = get()) }
     viewModel { MainViewModel() }
-    viewModel { SessionDetailsViewModel() }
+    viewModel { SessionDetailsViewModel(repo = get()) }
     viewModel { SplashViewModel(repo = get()) }
 }

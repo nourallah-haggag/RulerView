@@ -2,12 +2,15 @@ package com.rumbl.rumbl_pt.features.session_details
 
 import android.graphics.Paint
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.services.ImageLoadingService
+import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentSessionDetailsBinding
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import com.rumbl.rumbl_pt.utils.Dateutils
@@ -83,6 +86,50 @@ class SessionDetailsFragment :
             iv_back.setOnClickListener {
                 findNavController().navigateUp()
             }
+            binding.btnAcceptSession.setOnClickListener {
+                viewmodel.acceptSession(sessionInfo.id)
+            }
         }
+        observeAccpetSessionSingleLiveEvent()
+    }
+
+    private fun observeAccpetSessionSingleLiveEvent() {
+        viewmodel.observeAccpetSessionSingleLiveEvent().observe(viewLifecycleOwner, {
+            when (it.whichStatus()) {
+                CommonStatusImp.SUCCESS -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.VISIBLE
+                        tvDecline.visibility = View.VISIBLE
+                        progressAcceptDecline.visibility = View.GONE
+                    }
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.session_booked_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                CommonStatusImp.LOADING -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.INVISIBLE
+                        tvDecline.visibility = View.INVISIBLE
+                        progressAcceptDecline.visibility = View.VISIBLE
+                    }
+                }
+                CommonStatusImp.ERROR -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.VISIBLE
+                        tvDecline.visibility = View.VISIBLE
+                        progressAcceptDecline.visibility = View.GONE
+                    }
+                    it.fetchError()?.let { error ->
+                        Toast.makeText(
+                            requireContext(),
+                            error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
     }
 }

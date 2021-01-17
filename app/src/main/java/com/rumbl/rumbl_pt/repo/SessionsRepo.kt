@@ -19,4 +19,6 @@ class SessionsRepo(private val api: SessionsApi) : IRepo {
         it.data
     }
 
+    fun acceptSession(id: Int) = api.acceptSession(id).map { it.data }
+
 }

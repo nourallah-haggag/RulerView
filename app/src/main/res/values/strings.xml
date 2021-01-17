@@ -54,6 +54,7 @@
     <string name="no_of_sessions">Number of %s sessions with you</string>
     <string name="schedule">Schedule</string>
     <string name="no_results">No results</string>
+    <string name="session_booked_success">Session has been successfully selected</string>
 
 
 </resources>
