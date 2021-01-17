@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.kizitonwose.calendarview.model.CalendarDay
 import com.kizitonwose.calendarview.utils.Size
 import com.kizitonwose.calendarview.utils.yearMonth
@@ -12,7 +13,10 @@ import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentScheduleBinding
+import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsInteractionListener
 import com.rumbl.rumbl_pt.features.home.home_list.latest_requests.LatestRequestsAdapter
+import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
+import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import kotlinx.android.synthetic.main.fragment_schedule.*
 import kotlinx.android.synthetic.main.layout_loading.view.*
 import java.time.YearMonth
@@ -23,7 +27,7 @@ import java.util.*
 class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding>(
     layoutId = R.layout.fragment_schedule,
     clazz = ScheculeViewModel::class
-), DayItemInteractionListener {
+), DayItemInteractionListener, HomeItemsInteractionListener {
 
     private var lastSelectedDay: CalendarDay? = null
     private var loadingView: View? = null
@@ -83,7 +87,7 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
                                 loadingView?.visibility = View.GONE
                                 rvSessions.visibility = View.VISIBLE
                             }
-                            val adapter = LatestRequestsAdapter(sessions)
+                            val adapter = LatestRequestsAdapter(sessions, this)
                             binding.rvSessions.adapter = adapter
                         }
                     }
@@ -110,5 +114,30 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
                 }
             }
         })
+    }
+
+    override fun onAllLatestSessionsClicked() {
+    }
+
+    override fun onAllUpcomingSessionsClicked() {
+    }
+
+    override fun onSessionItemClicked(session: SessionsResponse) {
+        findNavController().navigate(
+            R.id.action_schedule_to_session_details,
+            SessionDetailsFragment.passSessionInfo(session)
+        )
+    }
+
+    override fun onAcceptSessionClicked() {
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadingView = null
+        noResultsView = null
+        lastSelectedDay?.let { lastSelectedDay ->
+            binding.calendarSesssions.scrollToDay(lastSelectedDay)
+        }
     }
 }

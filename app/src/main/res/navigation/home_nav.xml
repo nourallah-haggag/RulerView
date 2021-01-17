@@ -24,7 +24,11 @@
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.rumbl.rumbl_pt.features.schedule.ScheduleFragment"
-        tools:layout="@layout/fragment_schedule" />
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_schedule_to_session_details"
+            app:destination="@id/sessionDetailsFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.rumbl.rumbl_pt.features.notifications.NotificationsFragment"
