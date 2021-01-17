@@ -3,17 +3,21 @@ package com.rumbl.rumbl_pt.features.requests
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentRequestsBinding
+import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsInteractionListener
 import com.rumbl.rumbl_pt.features.home.home_list.latest_requests.LatestRequestsAdapter
+import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
+import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import kotlinx.android.synthetic.main.fragment_requests.*
 
 class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding>(
     clazz = RequestsViewModel::class,
     layoutId = R.layout.fragment_requests
-) {
+) , HomeItemsInteractionListener {
     override fun onCreateInit(savedInstanceState: Bundle?) {
         viewmodel.fetchRequestedSessions()
         observeRequestedSessions()
@@ -27,7 +31,7 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                     tv_request_screen_title.visibility = View.VISIBLE
                     rv_requested_sessions.visibility = View.VISIBLE
                     it.fetchData()?.let { sessions ->
-                        val adapter = LatestRequestsAdapter(sessions)
+                        val adapter = LatestRequestsAdapter(sessions , this)
                         rv_requested_sessions.adapter = adapter
                     }
                 }
@@ -46,5 +50,21 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                 }
             }
         })
+    }
+
+    override fun onAllLatestSessionsClicked() {
+    }
+
+    override fun onAllUpcomingSessionsClicked() {
+    }
+
+    override fun onSessionItemClicked(session: SessionsResponse) {
+        findNavController().navigate(
+            R.id.action_requests_to_session_details,
+            SessionDetailsFragment.passSessionInfo(session)
+        )
+    }
+
+    override fun onAcceptSessionClicked() {
     }
 }
