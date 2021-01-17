@@ -31,8 +31,15 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                     tv_request_screen_title.visibility = View.VISIBLE
                     rv_requested_sessions.visibility = View.VISIBLE
                     it.fetchData()?.let { sessions ->
-                        val adapter = LatestRequestsAdapter(sessions, this)
-                        rv_requested_sessions.adapter = adapter
+                        if (sessions.isNotEmpty()) {
+                            val adapter = LatestRequestsAdapter(sessions, this)
+                            rv_requested_sessions.adapter = adapter
+                        } else {
+                            binding.apply {
+                                viewEmptySessions.visibility = View.VISIBLE
+                                rvRequestedSessions.visibility = View.GONE
+                            }
+                        }
                     }
                 }
                 CommonStatusImp.LOADING -> {
