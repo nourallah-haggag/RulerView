@@ -2,7 +2,6 @@ package com.rumbl.rumbl_pt.features.requests
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
@@ -53,15 +52,13 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                     tv_request_screen_title.visibility = View.VISIBLE
                     rv_requested_sessions.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
-                        it.fetchError()?.let { error ->
-                            DialogsUtils.showBlockingDialog(
-                                context = requireContext(),
-                                view = R.layout.layout_error_dialog,
-                                message = error,
-                                retryAction = {
-                                    viewmodel.fetchRequestedSessions()
-                                })
-                        }
+                        DialogsUtils.showBlockingDialog(
+                            context = requireContext(),
+                            view = R.layout.layout_error_dialog,
+                            message = error,
+                            retryAction = {
+                                viewmodel.fetchRequestedSessions()
+                            })
                     }
                 }
             }

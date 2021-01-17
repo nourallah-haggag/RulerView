@@ -2,7 +2,6 @@ package com.rumbl.rumbl_pt.features.notifications
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
@@ -12,6 +11,7 @@ import com.rumbl.rumbl_pt.features.notifications.notifications_list.Notification
 import com.rumbl.rumbl_pt.features.notifications.notifications_list.NotificationsInteractionListener
 import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
 import com.rumbl.rumbl_pt.models.Notification
+import com.rumbl.rumbl_pt.utils.DialogsUtils
 import kotlinx.android.synthetic.main.fragment_notifications.*
 
 class NotificationsFragment : BaseFragment<NotificationsViewModel, FragmentNotificationsBinding>(
@@ -45,7 +45,13 @@ class NotificationsFragment : BaseFragment<NotificationsViewModel, FragmentNotif
                     tv_notification_title.visibility = View.VISIBLE
                     rv_notifications.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
-                        Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                        DialogsUtils.showBlockingDialog(
+                            context = requireContext(),
+                            view = R.layout.layout_error_dialog,
+                            message = error,
+                            retryAction = {
+                                viewmodel.fetchNotifications()
+                            })
                     }
                 }
             }
