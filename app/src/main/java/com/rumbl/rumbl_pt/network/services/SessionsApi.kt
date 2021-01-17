@@ -17,4 +17,7 @@ interface SessionsApi {
 
     @PATCH("pt/accept-session")
     fun acceptSession(@Query("id") id: Int): Single<BaseWrapper<Any>>
+
+    @PATCH("pt/reject-session")
+    fun rejectSession(@Query("id") id: Int): Single<BaseWrapper<Any>>
 }

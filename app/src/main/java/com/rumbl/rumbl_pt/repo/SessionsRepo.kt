@@ -21,4 +21,5 @@ class SessionsRepo(private val api: SessionsApi) : IRepo {
 
     fun acceptSession(id: Int) = api.acceptSession(id).map { it.data }
 
+    fun rejectSession(id: Int) = api.rejectSession(id).map { it.data }
 }

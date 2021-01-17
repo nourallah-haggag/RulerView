@@ -89,8 +89,12 @@ class SessionDetailsFragment :
             binding.btnAcceptSession.setOnClickListener {
                 viewmodel.acceptSession(sessionInfo.id)
             }
+            binding.tvDecline.setOnClickListener {
+                viewmodel.rejectSession(sessionInfo.id)
+            }
         }
         observeAccpetSessionSingleLiveEvent()
+        observeRejectSessionSingleLiveEvent()
     }
 
     private fun observeAccpetSessionSingleLiveEvent() {
@@ -107,6 +111,48 @@ class SessionDetailsFragment :
                         getString(R.string.session_booked_success),
                         Toast.LENGTH_SHORT
                     ).show()
+                    findNavController().navigateUp()
+                }
+                CommonStatusImp.LOADING -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.INVISIBLE
+                        tvDecline.visibility = View.INVISIBLE
+                        progressAcceptDecline.visibility = View.VISIBLE
+                    }
+                }
+                CommonStatusImp.ERROR -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.VISIBLE
+                        tvDecline.visibility = View.VISIBLE
+                        progressAcceptDecline.visibility = View.GONE
+                    }
+                    it.fetchError()?.let { error ->
+                        Toast.makeText(
+                            requireContext(),
+                            error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun observeRejectSessionSingleLiveEvent() {
+        viewmodel.observeRejectessionSingleLiveEvent().observe(viewLifecycleOwner, {
+            when (it.whichStatus()) {
+                CommonStatusImp.SUCCESS -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.VISIBLE
+                        tvDecline.visibility = View.VISIBLE
+                        progressAcceptDecline.visibility = View.GONE
+                    }
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.session_rejected),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    findNavController().navigateUp()
                 }
                 CommonStatusImp.LOADING -> {
                     binding.apply {

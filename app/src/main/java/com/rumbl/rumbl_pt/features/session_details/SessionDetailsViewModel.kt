@@ -10,10 +10,21 @@ class SessionDetailsViewModel(private val repo: SessionsRepo) : BaseViewModel() 
         SingleLiveEvent()
     }
 
+    private val rejectSessionSingleLiveEvent: SingleLiveEvent<IResult<Any>> by lazy {
+        SingleLiveEvent()
+    }
+
     fun observeAccpetSessionSingleLiveEvent(): SingleLiveEvent<IResult<Any>> =
         acceptSessionSingleLiveEvent
 
+    fun observeRejectessionSingleLiveEvent(): SingleLiveEvent<IResult<Any>> =
+        rejectSessionSingleLiveEvent
+
     fun acceptSession(sessionId: Int) {
         repo.acceptSession(sessionId).execute(acceptSessionSingleLiveEvent)
+    }
+
+    fun rejectSession(sessionId: Int) {
+        repo.rejectSession(sessionId).execute(rejectSessionSingleLiveEvent)
     }
 }
