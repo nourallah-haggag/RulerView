@@ -19,7 +19,8 @@ object DialogsUtils {
     inline fun showBlockingDialog(
         context: Context,
         @LayoutRes view: Int,
-        @StringRes message: Int,
+        @StringRes messageRes: Int? = null,
+        message: String? = null,
         crossinline retryAction: () -> Unit = {},
         crossinline cancelAction: () -> Unit = {}
     ): AlertDialog {
@@ -27,17 +28,22 @@ object DialogsUtils {
         return AlertDialog.Builder(context).apply {
             inflatedView = LayoutInflater.from(context).inflate(view, null)
             inflatedView.findViewById<TextView>(R.id.tv_dialog_message)?.apply {
-                text = context.getString(message)
+                messageRes?.let {
+                    text = context.getString(it)
+                }
+                message?.let {
+                    text = it
+                }
             }
             setView(inflatedView)
             setCancelable(false)
         }.create().apply {
             window?.decorView?.setBackgroundResource(android.R.color.transparent)
-            inflatedView.findViewById<TextView>(R.id.btn_retry).setOnClickListener {
+            inflatedView.findViewById<TextView>(R.id.btn_retry)?.setOnClickListener {
                 dismiss()
                 retryAction.invoke()
             }
-            inflatedView.findViewById<TextView>(R.id.tv_dialog_cancel).setOnClickListener {
+            inflatedView.findViewById<TextView>(R.id.tv_dialog_cancel)?.setOnClickListener {
                 dismiss()
                 cancelAction.invoke()
             }

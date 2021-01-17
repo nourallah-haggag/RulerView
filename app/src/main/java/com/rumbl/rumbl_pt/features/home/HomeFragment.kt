@@ -2,7 +2,6 @@ package com.rumbl.rumbl_pt.features.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
@@ -16,6 +15,7 @@ import com.rumbl.rumbl_pt.models.IHomeScreenModel
 import com.rumbl.rumbl_pt.models.LatestSessionsRequests
 import com.rumbl.rumbl_pt.models.NoSessionsItem
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
+import com.rumbl.rumbl_pt.utils.DialogsUtils
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
@@ -64,8 +64,15 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
                     rv_home_sessions.visibility = View.VISIBLE
                     tv_trainer_name.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
-                        Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                        DialogsUtils.showBlockingDialog(
+                            context = requireContext(),
+                            view = R.layout.layout_error_dialog,
+                            message = error,
+                            retryAction = {
+                                viewmodel.getRequestedAndUpcomingSessions()
+                            })
                     }
+
                 }
             }
         })

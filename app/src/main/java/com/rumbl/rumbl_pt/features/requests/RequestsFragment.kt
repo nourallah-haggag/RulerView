@@ -12,6 +12,7 @@ import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsInteractionListener
 import com.rumbl.rumbl_pt.features.home.home_list.latest_requests.LatestRequestsAdapter
 import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
+import com.rumbl.rumbl_pt.utils.DialogsUtils
 import kotlinx.android.synthetic.main.fragment_requests.*
 
 class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding>(
@@ -52,7 +53,15 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                     tv_request_screen_title.visibility = View.VISIBLE
                     rv_requested_sessions.visibility = View.VISIBLE
                     it.fetchError()?.let { error ->
-                        Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
+                        it.fetchError()?.let { error ->
+                            DialogsUtils.showBlockingDialog(
+                                context = requireContext(),
+                                view = R.layout.layout_error_dialog,
+                                message = error,
+                                retryAction = {
+                                    viewmodel.fetchRequestedSessions()
+                                })
+                        }
                     }
                 }
             }
