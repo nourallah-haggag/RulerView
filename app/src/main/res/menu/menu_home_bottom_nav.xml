@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/notificationFragment"
-        android:icon="@drawable/ic_notification"
+        android:icon="@drawable/ic_bell"
         android:title="@string/notifications_tab"
         app:showAsAction="ifRoom" />
     <item
