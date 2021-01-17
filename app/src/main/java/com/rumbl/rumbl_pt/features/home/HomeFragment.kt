@@ -3,15 +3,18 @@ package com.rumbl.rumbl_pt.features.home
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentHomeBinding
 import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsAdapter
 import com.rumbl.rumbl_pt.features.home.home_list.HomeItemsInteractionListener
+import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
 import com.rumbl.rumbl_pt.models.HeaderItem
 import com.rumbl.rumbl_pt.models.IHomeScreenModel
 import com.rumbl.rumbl_pt.models.LatestSessionsRequests
+import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
@@ -64,6 +67,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
     }
 
     override fun onAllLatestSessionsClicked() {
+        findNavController().navigate(R.id.requestsFragment)
 
     }
 
@@ -71,8 +75,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
 
     }
 
-    override fun onSessionItemClicked() {
-
+    override fun onSessionItemClicked(session: SessionsResponse) {
+        findNavController().navigate(
+            R.id.action_home_to_session_details,
+            SessionDetailsFragment.passSessionInfo(session)
+        )
     }
 
     override fun onAcceptSessionClicked() {

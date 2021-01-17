@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.rumbl.rumbl_pt.features.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_session_details"
+            app:destination="@id/sessionDetailsFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/requestsFragment"
         android:name="com.rumbl.rumbl_pt.features.requests.RequestsFragment"

@@ -11,6 +11,9 @@ class LatestRequestsItemViewHolder(itemView: View) : HomeItemsViewHolder(itemVie
         if (item is LatestSessionsRequests) {
             with(itemView)
             {
+                iv_open_all.setOnClickListener {
+                    homeItemsInteractionListener?.onAllLatestSessionsClicked()
+                }
                 val sessionsAdapter =
                     LatestRequestsAdapter(item.sessions, homeItemsInteractionListener)
                 rv_sessions_latest_requests.adapter = sessionsAdapter

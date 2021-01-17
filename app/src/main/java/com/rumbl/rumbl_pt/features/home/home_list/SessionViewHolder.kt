@@ -17,6 +17,9 @@ class SessionViewHolder(itemView: View) : HomeItemsViewHolder(itemView), KoinCom
         if (item is SessionsResponse) {
             with(itemView)
             {
+                setOnClickListener {
+                    homeItemsInteractionListener?.onSessionItemClicked(item)
+                }
                 when (item.session_type) {
                     1 -> {
                         tv_session_type.text = context.getString(R.string.training_session)

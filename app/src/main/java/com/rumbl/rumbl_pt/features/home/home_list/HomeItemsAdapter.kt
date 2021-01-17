@@ -55,6 +55,6 @@ class HomeItemsAdapter(
 interface HomeItemsInteractionListener {
     fun onAllLatestSessionsClicked()
     fun onAllUpcomingSessionsClicked()
-    fun onSessionItemClicked()
+    fun onSessionItemClicked(session:SessionsResponse)
     fun onAcceptSessionClicked()
 }
