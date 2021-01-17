@@ -125,7 +125,10 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
     override fun onSessionItemClicked(session: SessionsResponse) {
         findNavController().navigate(
             R.id.action_schedule_to_session_details,
-            SessionDetailsFragment.passSessionInfo(session)
+            SessionDetailsFragment.passSessionInfo(
+                session,
+                SessionDetailsFragment.SessionDetailsType.NORMAL_SESSION_DETAILS
+            )
         )
     }
 

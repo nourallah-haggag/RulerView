@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_requests.*
 class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding>(
     clazz = RequestsViewModel::class,
     layoutId = R.layout.fragment_requests
-) , HomeItemsInteractionListener {
+), HomeItemsInteractionListener {
     override fun onCreateInit(savedInstanceState: Bundle?) {
         viewmodel.fetchRequestedSessions()
         observeRequestedSessions()
@@ -31,7 +31,7 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
                     tv_request_screen_title.visibility = View.VISIBLE
                     rv_requested_sessions.visibility = View.VISIBLE
                     it.fetchData()?.let { sessions ->
-                        val adapter = LatestRequestsAdapter(sessions , this)
+                        val adapter = LatestRequestsAdapter(sessions, this)
                         rv_requested_sessions.adapter = adapter
                     }
                 }
@@ -61,7 +61,10 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
     override fun onSessionItemClicked(session: SessionsResponse) {
         findNavController().navigate(
             R.id.action_requests_to_session_details,
-            SessionDetailsFragment.passSessionInfo(session)
+            SessionDetailsFragment.passSessionInfo(
+                session,
+                SessionDetailsFragment.SessionDetailsType.NORMAL_SESSION_DETAILS
+            )
         )
     }
 

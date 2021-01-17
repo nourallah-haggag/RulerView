@@ -28,11 +28,22 @@ class SessionDetailsFragment :
 
     companion object {
         const val SESSION_INFO = "session_info"
-        fun passSessionInfo(sessionInfo: SessionsResponse): Bundle {
+        const val SESSION_DETAILS_TYPE = "session_details_type"
+        fun passSessionInfo(
+            sessionInfo: SessionsResponse,
+            sessionDetailsType: SessionDetailsType
+        ): Bundle {
             val bundle = bundleOf()
-            bundle.putParcelable(SESSION_INFO, sessionInfo)
+            bundle.apply {
+                putParcelable(SESSION_INFO, sessionInfo)
+                putSerializable(SESSION_DETAILS_TYPE, sessionDetailsType)
+            }
             return bundle
         }
+    }
+
+    enum class SessionDetailsType {
+        NORMAL_SESSION_DETAILS, NOTIFICATION_SESSION_DETAILS
     }
 
     override fun onCreateInit(savedInstanceState: Bundle?) {
@@ -91,6 +102,25 @@ class SessionDetailsFragment :
             }
             binding.tvDecline.setOnClickListener {
                 viewmodel.rejectSession(sessionInfo.id)
+            }
+        }
+        requireArguments().getSerializable(SESSION_DETAILS_TYPE)?.let { sessionDetailsType ->
+            when (sessionDetailsType) {
+                SessionDetailsType.NOTIFICATION_SESSION_DETAILS -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.GONE
+                        tvDecline.visibility = View.GONE
+                    }
+
+                }
+                SessionDetailsType.NORMAL_SESSION_DETAILS -> {
+                    binding.apply {
+                        btnAcceptSession.visibility = View.VISIBLE
+                        tvDecline.visibility = View.VISIBLE
+                    }
+
+                }
+                else -> throw IllegalStateException("No such state for session details")
             }
         }
         observeAccpetSessionSingleLiveEvent()
