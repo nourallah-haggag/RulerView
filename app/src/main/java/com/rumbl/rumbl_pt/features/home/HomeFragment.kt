@@ -14,6 +14,7 @@ import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
 import com.rumbl.rumbl_pt.models.HeaderItem
 import com.rumbl.rumbl_pt.models.IHomeScreenModel
 import com.rumbl.rumbl_pt.models.LatestSessionsRequests
+import com.rumbl.rumbl_pt.models.NoSessionsItem
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -38,11 +39,15 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
                     it.fetchData()?.let { sessions ->
                         sessions.first.apply {
                             homeModelsList.add(LatestSessionsRequests(this))
+                            if (this.isEmpty()) {
+                                homeModelsList.add(NoSessionsItem)
+                            }
                         }
                         sessions.second.apply {
-                            if (this.isNotEmpty()) {
-                                homeModelsList.add(HeaderItem)
-                                homeModelsList.addAll(this)
+                            homeModelsList.add(HeaderItem)
+                            homeModelsList.addAll(this)
+                            if (this.isEmpty()) {
+                                homeModelsList.add(NoSessionsItem)
                             }
                         }
                         val homeItemsAdapter = HomeItemsAdapter(homeModelsList, this)
@@ -72,7 +77,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(
     }
 
     override fun onAllUpcomingSessionsClicked() {
-
+        findNavController().navigate(R.id.requestsFragment)
     }
 
     override fun onSessionItemClicked(session: SessionsResponse) {

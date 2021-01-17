@@ -7,6 +7,7 @@ import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.models.HeaderItem
 import com.rumbl.rumbl_pt.models.IHomeScreenModel
 import com.rumbl.rumbl_pt.models.LatestSessionsRequests
+import com.rumbl.rumbl_pt.models.NoSessionsItem
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
 
 class HomeItemsAdapter(
@@ -20,6 +21,7 @@ class HomeItemsAdapter(
             is LatestSessionsRequests -> R.layout.item_latest_requests
             is HeaderItem -> R.layout.item_header
             is SessionsResponse -> R.layout.item_session
+            is NoSessionsItem -> R.layout.item_empty_session
             else -> throw IllegalStateException("HomeListItems: no such item type")
         }
     }
@@ -41,6 +43,11 @@ class HomeItemsAdapter(
                     .inflate(R.layout.item_session, parent, false)
                 SessionViewHolder(view)
             }
+            R.layout.item_empty_session -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_empty_session, parent, false)
+                NoSessionViewHolder(view)
+            }
             else -> throw IllegalStateException("HomeListItems: no such item type")
         }
     }
@@ -55,6 +62,6 @@ class HomeItemsAdapter(
 interface HomeItemsInteractionListener {
     fun onAllLatestSessionsClicked()
     fun onAllUpcomingSessionsClicked()
-    fun onSessionItemClicked(session:SessionsResponse)
+    fun onSessionItemClicked(session: SessionsResponse)
     fun onAcceptSessionClicked()
 }

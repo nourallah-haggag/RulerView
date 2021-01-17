@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_200dp_in"
+    android:fontFamily="@font/circularstd_medium"
+    android:gravity="center"
+    android:text="@string/no_sessions_available"
+    android:textSize="@dimen/_20sp_in" />

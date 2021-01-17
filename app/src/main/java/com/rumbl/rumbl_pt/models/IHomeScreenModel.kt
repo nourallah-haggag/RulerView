@@ -10,3 +10,4 @@ data class LatestSessionsRequests(
 ) : IHomeScreenModel
 
 object HeaderItem : IHomeScreenModel
+object NoSessionsItem: IHomeScreenModel

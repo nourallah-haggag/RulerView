@@ -56,6 +56,7 @@
     <string name="no_results">No results</string>
     <string name="session_booked_success">Session has been successfully selected</string>
     <string name="session_rejected">Session rejected successfully</string>
+    <string name="no_sessions_available">No sessions available</string>
 
 
 </resources>
