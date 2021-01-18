@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "944227119051",
+    "firebase_url": "https://rumbl-2020.firebaseio.com",
+    "project_id": "rumbl-2020",
+    "storage_bucket": "rumbl-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944227119051:android:812d444da05b39c936904e",
+        "android_client_info": {
+          "package_name": "com.rumbl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944227119051-aelavvshmbaekfl3rt6ikq5tvpfj56l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rumbl",
+            "certificate_hash": "fc92666597c2176d2989a633ceba6aa12b04e98c"
+          }
+        },
+        {
+          "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbiXN6QyGp6YMORnDgYpi-1eNSuzrgwuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "944227119051-61rgfltffnlpmcdhflcd2jrtbm3jk1ad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rumblpt.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944227119051:android:d7e0b958970376ec36904e",
+        "android_client_info": {
+          "package_name": "com.rumbl.rumbl_pt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbiXN6QyGp6YMORnDgYpi-1eNSuzrgwuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "944227119051-61rgfltffnlpmcdhflcd2jrtbm3jk1ad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rumblpt.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944227119051:android:b9cefce8e1c0341a36904e",
+        "android_client_info": {
+          "package_name": "com.rumbl.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944227119051-9g5ktee1rivrvpu96oakhn5ev6esfv1r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rumbl.staging",
+            "certificate_hash": "20edd57b14d503dacf629b022a161a6772f62962"
+          }
+        },
+        {
+          "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbiXN6QyGp6YMORnDgYpi-1eNSuzrgwuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944227119051-fqs3j1ggpohm73hinjnkr015lk04kprk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "944227119051-61rgfltffnlpmcdhflcd2jrtbm3jk1ad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rumblpt.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

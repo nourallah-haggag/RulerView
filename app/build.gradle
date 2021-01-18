@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     buildFeatures {
@@ -25,6 +27,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true", firebaseCollectionEnabled: "true"]
+        }
+        debug {
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false", firebaseCollectionEnabled: "false"]
         }
     }
     compileOptions {
@@ -41,7 +47,6 @@ android {
         staging {
             buildConfigField("String", "BASE_URL", "\"https://testdash.rumbl.app/api/v1/\"")
             dimension 'mode'
-            applicationIdSuffix '.staging'
         }
         production {
             buildConfigField("String", "BASE_URL", "\"https://www.dashboard.rumbl.app/api/V1/\"")
@@ -137,6 +142,12 @@ dependencies {
     implementation Dependencies.dateTime
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
+
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
 
 }
 repositories {

@@ -20,11 +20,11 @@ object Versions {
 
     val firebaseCrashlytics = "17.1.1"
 
-	val firebaseCrashlyticsClassPath = "2.3.0"
+	val firebaseCrashlyticsClassPath = "2.4.1"
 
 	val firebaseAnalytics = "17.2.2"
 
-	val googleServiceClassPath = "4.3.3"
+	val googleServiceClassPath = "4.3.4"
 
     val tedImagePicker = "1.1.3"
 
