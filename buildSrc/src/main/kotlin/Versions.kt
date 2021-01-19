@@ -82,9 +82,9 @@ object Versions {
 
 	val build_tools_version = "29.0.3"
 
-	val version_code = 22
+	val version_code = 1
 
-	val version_name = "1.3.1"
+	val version_name = "1.0.0-(STAGING)"
 
 	val kotlin_version = "1.4.10"
 

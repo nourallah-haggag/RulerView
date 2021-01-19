@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.os.bundleOf
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
@@ -30,10 +32,24 @@ class PasswordEnteryFragment : BaseFragment<PasswordEntryViewModel, FragmentPass
         btn_login.setOnClickListener {
             if (isPasswordValid()) {
                 requireArguments().getString(PHONE_KEY)?.let { phone ->
-                    viewmodel.loginTrainer(
-                        phone = phone,
-                        password = binding.etPassword.text.toString()
-                    )
+                    FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                        if (!task.isSuccessful) {
+                            Toast.makeText(
+                                requireContext(),
+                                R.string.unknown_error_occurred,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@OnCompleteListener
+                        }
+                        val token = task.result
+                        token?.let { fcmToken ->
+                            viewmodel.loginTrainer(
+                                phone = phone,
+                                password = binding.etPassword.text.toString(),
+                                fcmToken = fcmToken
+                            )
+                        }
+                    })
                 }
             }
         }

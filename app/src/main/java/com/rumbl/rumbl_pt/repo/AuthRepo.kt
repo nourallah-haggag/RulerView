@@ -1,8 +1,11 @@
 package com.rumbl.rumbl_pt.repo
 
 import com.rumbl.rumbl_pt.network.request.AuthRequest
+import com.rumbl.rumbl_pt.network.request.RegisterDeviceRequest
+import com.rumbl.rumbl_pt.network.response.AuthResponse
 import com.rumbl.rumbl_pt.network.response.Trainer
 import com.rumbl.rumbl_pt.network.services.AuthApi
+import io.reactivex.rxjava3.core.Single
 
 class AuthRepo(private val api: AuthApi) : IRepo {
 
@@ -34,4 +37,19 @@ class AuthRepo(private val api: AuthApi) : IRepo {
                 code = code
             )
         ).map { it.data }
+
+    private fun registerDevice(fcmToken: String) =
+        api.registerDevice(RegisterDeviceRequest(token = fcmToken))
+
+    fun registerDeviceAndLogin(
+        phone: String,
+        password: String? = null,
+        code: String? = null,
+        fcmToken: String
+    ): Single<Pair<AuthResponse, Any>> = loginPt(phone, password, code).concatMap { authResponse ->
+        registerDevice(fcmToken).flatMap { registerDeviceResponse ->
+            Single.just(Pair(authResponse, registerDeviceResponse.data))
+        }
+    }
+
 }
