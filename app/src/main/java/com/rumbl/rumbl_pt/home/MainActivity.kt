@@ -7,9 +7,12 @@ import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.rumbl.rumbl_pt.Constants
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.activities.BaseActivity
 import com.rumbl.rumbl_pt.databinding.ActivityMainBinding
+import com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment
+import com.rumbl.rumbl_pt.network.response.SessionsResponse
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(MainViewModel::class) {
 
@@ -31,6 +34,18 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(MainViewMo
     override fun onCreateInit(savedInstance: Bundle?) {
         navController = findNavController(R.id.nav_host_fragment)
         binding.bottomNav.setupWithNavController(navController)
+        intent.getBundleExtra(Constants.SESSION_RESPONSE_NOTIFICATION_KEY)?.let { bundle ->
+            bundle.getParcelable<SessionsResponse>(Constants.SESSION_RESPONSE_NOTIFICATION_KEY)
+                ?.let { session ->
+                    navController.navigate(
+                        R.id.sessionDetailsFragment,
+                        SessionDetailsFragment.passSessionInfo(
+                            session,
+                            SessionDetailsFragment.SessionDetailsType.NOTIFICATION_SESSION_DETAILS
+                        )
+                    )
+                }
+        }
     }
 
     private fun showBottomNavView() {
