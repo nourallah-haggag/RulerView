@@ -126,8 +126,7 @@ class ScheduleFragment : BaseFragment<ScheculeViewModel, FragmentScheduleBinding
         findNavController().navigate(
             R.id.action_schedule_to_session_details,
             SessionDetailsFragment.passSessionInfo(
-                session,
-                SessionDetailsFragment.SessionDetailsType.NORMAL_SESSION_DETAILS
+                session
             )
         )
     }

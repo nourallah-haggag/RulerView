@@ -12,6 +12,7 @@ import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
 import com.rumbl.rumbl_pt.bases.services.ImageLoadingService
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentSessionDetailsBinding
+import com.rumbl.rumbl_pt.enums.SessionStatus.*
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import com.rumbl.rumbl_pt.utils.Dateutils
 import kotlinx.android.synthetic.main.fragment_session_details.*
@@ -28,15 +29,12 @@ class SessionDetailsFragment :
 
     companion object {
         const val SESSION_INFO = "session_info"
-        const val SESSION_DETAILS_TYPE = "session_details_type"
         fun passSessionInfo(
-            sessionInfo: SessionsResponse,
-            sessionDetailsType: SessionDetailsType
+            sessionInfo: SessionsResponse
         ): Bundle {
             val bundle = bundleOf()
             bundle.apply {
                 putParcelable(SESSION_INFO, sessionInfo)
-                putSerializable(SESSION_DETAILS_TYPE, sessionDetailsType)
             }
             return bundle
         }
@@ -63,6 +61,44 @@ class SessionDetailsFragment :
                 }
                 2 -> {
                     iv_gender.setImageResource(R.drawable.ic_female)
+                }
+            }
+            when (sessionInfo.status) {
+                ACCEPTED.value -> {
+                    binding.apply {
+                        btnPositiveActionSession.apply {
+                            text = context.getString(R.string.start_session)
+                            setOnClickListener {
+                                //TODO: start session
+                            }
+                        }
+                        tvNegativeActionSession.apply {
+                            text = context.getString(R.string.cancel_session)
+                            setOnClickListener {
+                                //TODO: cancel session
+                            }
+                        }
+                    }
+                }
+                COMPLETED.value, REJECTEDBYTRAINER.value, CAMCELLEDBYTRAINER.value, CANCELLEDBYCUSTOMER.value -> {
+                    binding.apply {
+                        btnPositiveActionSession.visibility = View.GONE
+                        tvNegativeActionSession.visibility = View.GONE
+                    }
+                }
+                PENDING.value -> {
+                    binding.apply {
+                        btnPositiveActionSession.setOnClickListener {
+                            viewmodel.acceptSession(sessionInfo.id)
+                        }
+                        tvNegativeActionSession.setOnClickListener {
+                            viewmodel.rejectSession(sessionInfo.id)
+                        }
+                    }
+                }
+                INPROGRESS.value -> {
+                    // TODO: end session or cancel
+
                 }
             }
             // TODO: to be changed when ready from back end
@@ -97,31 +133,6 @@ class SessionDetailsFragment :
             iv_back.setOnClickListener {
                 findNavController().navigateUp()
             }
-            binding.btnAcceptSession.setOnClickListener {
-                viewmodel.acceptSession(sessionInfo.id)
-            }
-            binding.tvDecline.setOnClickListener {
-                viewmodel.rejectSession(sessionInfo.id)
-            }
-        }
-        requireArguments().getSerializable(SESSION_DETAILS_TYPE)?.let { sessionDetailsType ->
-            when (sessionDetailsType) {
-                SessionDetailsType.NOTIFICATION_SESSION_DETAILS -> {
-                    binding.apply {
-                        btnAcceptSession.visibility = View.GONE
-                        tvDecline.visibility = View.GONE
-                    }
-
-                }
-                SessionDetailsType.NORMAL_SESSION_DETAILS -> {
-                    binding.apply {
-                        btnAcceptSession.visibility = View.VISIBLE
-                        tvDecline.visibility = View.VISIBLE
-                    }
-
-                }
-                else -> throw IllegalStateException("No such state for session details")
-            }
         }
         observeAccpetSessionSingleLiveEvent()
         observeRejectSessionSingleLiveEvent()
@@ -132,8 +143,8 @@ class SessionDetailsFragment :
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.VISIBLE
-                        tvDecline.visibility = View.VISIBLE
+                        btnPositiveActionSession.visibility = View.VISIBLE
+                        tvNegativeActionSession.visibility = View.VISIBLE
                         progressAcceptDecline.visibility = View.GONE
                     }
                     Toast.makeText(
@@ -145,15 +156,15 @@ class SessionDetailsFragment :
                 }
                 CommonStatusImp.LOADING -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.INVISIBLE
-                        tvDecline.visibility = View.INVISIBLE
+                        btnPositiveActionSession.visibility = View.INVISIBLE
+                        tvNegativeActionSession.visibility = View.INVISIBLE
                         progressAcceptDecline.visibility = View.VISIBLE
                     }
                 }
                 CommonStatusImp.ERROR -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.VISIBLE
-                        tvDecline.visibility = View.VISIBLE
+                        btnPositiveActionSession.visibility = View.VISIBLE
+                        tvNegativeActionSession.visibility = View.VISIBLE
                         progressAcceptDecline.visibility = View.GONE
                     }
                     it.fetchError()?.let { error ->
@@ -173,8 +184,8 @@ class SessionDetailsFragment :
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.VISIBLE
-                        tvDecline.visibility = View.VISIBLE
+                        btnPositiveActionSession.visibility = View.VISIBLE
+                        tvNegativeActionSession.visibility = View.VISIBLE
                         progressAcceptDecline.visibility = View.GONE
                     }
                     Toast.makeText(
@@ -186,15 +197,15 @@ class SessionDetailsFragment :
                 }
                 CommonStatusImp.LOADING -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.INVISIBLE
-                        tvDecline.visibility = View.INVISIBLE
+                        btnPositiveActionSession.visibility = View.INVISIBLE
+                        tvNegativeActionSession.visibility = View.INVISIBLE
                         progressAcceptDecline.visibility = View.VISIBLE
                     }
                 }
                 CommonStatusImp.ERROR -> {
                     binding.apply {
-                        btnAcceptSession.visibility = View.VISIBLE
-                        tvDecline.visibility = View.VISIBLE
+                        btnPositiveActionSession.visibility = View.VISIBLE
+                        tvNegativeActionSession.visibility = View.VISIBLE
                         progressAcceptDecline.visibility = View.GONE
                     }
                     it.fetchError()?.let { error ->

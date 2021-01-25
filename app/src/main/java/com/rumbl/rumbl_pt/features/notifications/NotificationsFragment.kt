@@ -62,8 +62,7 @@ class NotificationsFragment : BaseFragment<NotificationsViewModel, FragmentNotif
         findNavController().navigate(
             R.id.action_notification_to_session_details,
             SessionDetailsFragment.passSessionInfo(
-                item.session,
-                SessionDetailsFragment.SessionDetailsType.NOTIFICATION_SESSION_DETAILS
+                item.session
             )
         )
     }

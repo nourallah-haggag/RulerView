@@ -218,7 +218,7 @@
                 tools:text="45 minutes" />
 
             <Button
-                android:id="@+id/btn_accept_session"
+                android:id="@+id/btn_positive_action_session"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_20dp_in"
@@ -231,7 +231,7 @@
                 app:layout_constraintVertical_bias="0" />
 
             <TextView
-                android:id="@+id/tv_decline"
+                android:id="@+id/tv_negative_action_session"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10dp_in"
@@ -242,7 +242,7 @@
                 android:textSize="@dimen/_18sp_in"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_accept_session" />
+                app:layout_constraintTop_toBottomOf="@id/btn_positive_action_session" />
 
             <TextView
                 android:id="@+id/tv_height"
@@ -359,10 +359,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/tv_decline"
-                app:layout_constraintEnd_toEndOf="@id/btn_accept_session"
-                app:layout_constraintStart_toStartOf="@id/btn_accept_session"
-                app:layout_constraintTop_toTopOf="@id/btn_accept_session" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_negative_action_session"
+                app:layout_constraintEnd_toEndOf="@id/btn_positive_action_session"
+                app:layout_constraintStart_toStartOf="@id/btn_positive_action_session"
+                app:layout_constraintTop_toTopOf="@id/btn_positive_action_session" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

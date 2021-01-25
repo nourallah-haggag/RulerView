@@ -40,8 +40,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(MainViewMo
                     navController.navigate(
                         R.id.sessionDetailsFragment,
                         SessionDetailsFragment.passSessionInfo(
-                            session,
-                            SessionDetailsFragment.SessionDetailsType.NOTIFICATION_SESSION_DETAILS
+                            session
                         )
                     )
                 }

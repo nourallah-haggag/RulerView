@@ -75,8 +75,7 @@ class RequestsFragment : BaseFragment<RequestsViewModel, FragmentRequestsBinding
         findNavController().navigate(
             R.id.action_requests_to_session_details,
             SessionDetailsFragment.passSessionInfo(
-                session,
-                SessionDetailsFragment.SessionDetailsType.NORMAL_SESSION_DETAILS
+                session
             )
         )
     }
