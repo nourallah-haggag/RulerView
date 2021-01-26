@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.fragments.BaseFragment
@@ -13,6 +14,7 @@ import com.rumbl.rumbl_pt.bases.services.ImageLoadingService
 import com.rumbl.rumbl_pt.bases.states.CommonStatusImp
 import com.rumbl.rumbl_pt.databinding.FragmentSessionDetailsBinding
 import com.rumbl.rumbl_pt.enums.SessionStatus.*
+import com.rumbl.rumbl_pt.features.active_session.ActiveSessionFragment
 import com.rumbl.rumbl_pt.network.response.SessionsResponse
 import com.rumbl.rumbl_pt.utils.Dateutils
 import kotlinx.android.synthetic.main.fragment_session_details.*
@@ -40,10 +42,6 @@ class SessionDetailsFragment :
         }
     }
 
-    enum class SessionDetailsType {
-        NORMAL_SESSION_DETAILS, NOTIFICATION_SESSION_DETAILS
-    }
-
     override fun onCreateInit(savedInstanceState: Bundle?) {
         requireArguments().getParcelable<SessionsResponse>(SESSION_INFO)?.let { sessionInfo ->
             sessionInfo.customer.avatar?.let { photo ->
@@ -69,13 +67,20 @@ class SessionDetailsFragment :
                         btnPositiveActionSession.apply {
                             text = context.getString(R.string.start_session)
                             setOnClickListener {
-                                //TODO: start session
+                                viewmodel.updateSessionStatus(
+                                    sessionId = sessionInfo.id,
+                                    newStatus = INPROGRESS.value
+                                )
+
                             }
                         }
                         tvNegativeActionSession.apply {
                             text = context.getString(R.string.cancel_session)
                             setOnClickListener {
-                                //TODO: cancel session
+                                viewmodel.updateSessionStatus(
+                                    sessionId = sessionInfo.id,
+                                    newStatus = CAMCELLEDBYTRAINER.value
+                                )
                             }
                         }
                     }
@@ -136,17 +141,14 @@ class SessionDetailsFragment :
         }
         observeAccpetSessionSingleLiveEvent()
         observeRejectSessionSingleLiveEvent()
+        observeSessionStatusChanged()
     }
 
     private fun observeAccpetSessionSingleLiveEvent() {
         viewmodel.observeAccpetSessionSingleLiveEvent().observe(viewLifecycleOwner, {
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.VISIBLE
-                        tvNegativeActionSession.visibility = View.VISIBLE
-                        progressAcceptDecline.visibility = View.GONE
-                    }
+                    hideLoading()
                     Toast.makeText(
                         requireContext(),
                         getString(R.string.session_booked_success),
@@ -155,18 +157,10 @@ class SessionDetailsFragment :
                     findNavController().navigateUp()
                 }
                 CommonStatusImp.LOADING -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.INVISIBLE
-                        tvNegativeActionSession.visibility = View.INVISIBLE
-                        progressAcceptDecline.visibility = View.VISIBLE
-                    }
+                    showLoading()
                 }
                 CommonStatusImp.ERROR -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.VISIBLE
-                        tvNegativeActionSession.visibility = View.VISIBLE
-                        progressAcceptDecline.visibility = View.GONE
-                    }
+                    hideLoading()
                     it.fetchError()?.let { error ->
                         Toast.makeText(
                             requireContext(),
@@ -183,11 +177,7 @@ class SessionDetailsFragment :
         viewmodel.observeRejectessionSingleLiveEvent().observe(viewLifecycleOwner, {
             when (it.whichStatus()) {
                 CommonStatusImp.SUCCESS -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.VISIBLE
-                        tvNegativeActionSession.visibility = View.VISIBLE
-                        progressAcceptDecline.visibility = View.GONE
-                    }
+                    hideLoading()
                     Toast.makeText(
                         requireContext(),
                         getString(R.string.session_rejected),
@@ -196,18 +186,10 @@ class SessionDetailsFragment :
                     findNavController().navigateUp()
                 }
                 CommonStatusImp.LOADING -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.INVISIBLE
-                        tvNegativeActionSession.visibility = View.INVISIBLE
-                        progressAcceptDecline.visibility = View.VISIBLE
-                    }
+                    showLoading()
                 }
                 CommonStatusImp.ERROR -> {
-                    binding.apply {
-                        btnPositiveActionSession.visibility = View.VISIBLE
-                        tvNegativeActionSession.visibility = View.VISIBLE
-                        progressAcceptDecline.visibility = View.GONE
-                    }
+                    hideLoading()
                     it.fetchError()?.let { error ->
                         Toast.makeText(
                             requireContext(),
@@ -218,5 +200,71 @@ class SessionDetailsFragment :
                 }
             }
         })
+    }
+
+    private fun observeSessionStatusChanged() {
+        viewmodel.observeUpdatingSessionsSingleLiveEvent().observe(viewLifecycleOwner, Observer {
+            when (it.whichStatus()) {
+                CommonStatusImp.SUCCESS -> {
+                    hideLoading()
+                    it.fetchData()?.let { sessionsResponse ->
+                        sessionsResponse.statuses.let { statuses ->
+                            if (statuses.isNotEmpty()) {
+                                when (statuses.last().status) {
+                                    INPROGRESS.value -> {
+                                        findNavController().navigate(
+                                            R.id.action_session_details_to_active_session,
+                                            ActiveSessionFragment.passSessionInfo(sessionsResponse)
+                                        )
+                                    }
+                                    CAMCELLEDBYTRAINER.value -> {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            getString(R.string.session_cancelled_successfully),
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        findNavController().navigateUp()
+                                    }
+                                    else -> {
+                                        findNavController().navigateUp()
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+                CommonStatusImp.LOADING -> {
+                    showLoading()
+                }
+                CommonStatusImp.ERROR -> {
+                    hideLoading()
+                    hideLoading()
+                    it.fetchError()?.let { error ->
+                        Toast.makeText(
+                            requireContext(),
+                            error,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        })
+    }
+
+    private fun showLoading() {
+        binding.apply {
+            btnPositiveActionSession.visibility = View.INVISIBLE
+            tvNegativeActionSession.visibility = View.INVISIBLE
+            progressAcceptDecline.visibility = View.VISIBLE
+        }
+    }
+
+    private fun hideLoading() {
+        binding.apply {
+            btnPositiveActionSession.visibility = View.VISIBLE
+            tvNegativeActionSession.visibility = View.VISIBLE
+            progressAcceptDecline.visibility = View.GONE
+        }
     }
 }

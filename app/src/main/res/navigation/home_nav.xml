@@ -8,26 +8,26 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.rumbl.rumbl_pt.features.home.HomeFragment"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_to_session_details"
-            app:destination="@id/sessionDetailsFragment"/>
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestsFragment"
         android:name="com.rumbl.rumbl_pt.features.requests.RequestsFragment"
-        tools:layout="@layout/fragment_requests" >
+        tools:layout="@layout/fragment_requests">
         <action
             android:id="@+id/action_requests_to_session_details"
-            app:destination="@id/sessionDetailsFragment"/>
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.rumbl.rumbl_pt.features.schedule.ScheduleFragment"
-        tools:layout="@layout/fragment_schedule" >
+        tools:layout="@layout/fragment_schedule">
         <action
             android:id="@+id/action_schedule_to_session_details"
-            app:destination="@id/sessionDetailsFragment"/>
+            app:destination="@id/sessionDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/notificationFragment"
@@ -44,6 +44,15 @@
     <fragment
         android:id="@+id/sessionDetailsFragment"
         android:name="com.rumbl.rumbl_pt.features.session_details.SessionDetailsFragment"
-        tools:layout="@layout/fragment_session_details" />
+        tools:layout="@layout/fragment_session_details">
+        <action
+            android:id="@+id/action_session_details_to_active_session"
+            app:destination="@id/activeSessionFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activeSessionFragment"
+        android:name="com.rumbl.rumbl_pt.features.active_session.ActiveSessionFragment"
+        tools:layout="@layout/fragment_session_in_progress" />
 
 </navigation>

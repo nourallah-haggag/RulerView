@@ -1,5 +1,6 @@
 package com.rumbl.rumbl_pt.di
 
+import com.rumbl.rumbl_pt.features.active_session.ActiveSessionViewModel
 import com.rumbl.rumbl_pt.features.auth.AuthViewModel
 import com.rumbl.rumbl_pt.features.auth.login.LoginViewModel
 import com.rumbl.rumbl_pt.features.auth.password_entry.PasswordEntryViewModel
@@ -33,4 +34,5 @@ val viewmodelModules = module {
     viewModel { MainViewModel() }
     viewModel { SessionDetailsViewModel(repo = get()) }
     viewModel { SplashViewModel(repo = get()) }
+    viewModel { ActiveSessionViewModel(repo = get()) }
 }

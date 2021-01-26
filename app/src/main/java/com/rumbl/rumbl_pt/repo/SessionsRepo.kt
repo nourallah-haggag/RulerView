@@ -1,5 +1,6 @@
 package com.rumbl.rumbl_pt.repo
 
+import com.rumbl.rumbl_pt.network.request.UpdateSessionRequest
 import com.rumbl.rumbl_pt.network.services.SessionsApi
 
 class SessionsRepo(private val api: SessionsApi) : IRepo {
@@ -22,4 +23,9 @@ class SessionsRepo(private val api: SessionsApi) : IRepo {
     fun acceptSession(id: Int) = api.acceptSession(id).map { it.data }
 
     fun rejectSession(id: Int) = api.rejectSession(id).map { it.data }
+
+    fun updateSessionStatus(sessionId: Int, newStatus: Int) = api.upateSessionStatus(
+        sessionId = sessionId,
+        updateSessionRequest = UpdateSessionRequest(newStatus)
+    ).map { it.data }
 }

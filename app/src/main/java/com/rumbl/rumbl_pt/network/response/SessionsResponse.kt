@@ -18,7 +18,8 @@ data class SessionsResponse(
     val time_slot: TimeSlot,
     val session_type: Int,
     val num_of_sessions_with_customer: Int,
-    val customer: Customer
+    val customer: Customer,
+    val statuses: List<SessionState>
 ) : Parcelable, IHomeScreenModel
 
 @JsonClass(generateAdapter = true)
@@ -46,4 +47,12 @@ data class TimeSlot(
     val personal_trainer_id: Int,
     val created_at: String,
     val updated_at: String
+) : Parcelable
+
+@JsonClass(generateAdapter = true)
+@Parcelize
+data class SessionState(
+    val id: Int,
+    val status: Int,
+    val created_at: String
 ) : Parcelable

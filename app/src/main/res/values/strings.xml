@@ -59,6 +59,9 @@
     <string name="no_sessions_available">No sessions available</string>
     <string name="start_session">Start Session</string>
     <string name="cancel_session">Cancel</string>
+    <string name="report_a_problem">Report a problem</string>
+    <string name="end_session">End session</string>
+    <string name="session_cancelled_successfully">Session cancelled successfully</string>
 
 
 </resources>
