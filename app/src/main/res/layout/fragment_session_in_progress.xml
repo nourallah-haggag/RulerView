@@ -8,7 +8,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/ic_close"
+            android:id="@+id/iv_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/_20dp_in"
@@ -28,7 +28,7 @@
             android:textSize="@dimen/_34sp_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ic_close"
+            app:layout_constraintTop_toBottomOf="@id/iv_close"
             tools:text="NourAllah Haggag" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:fontFamily="@font/circularstd_bold"
             android:gravity="center"
             android:textColor="@color/warm_grey"
-            android:textSize="@dimen/_80sp_in"
+            android:textSize="@dimen/_60sp_in"
             app:layout_constraintBottom_toTopOf="@id/btn_end_session"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +81,17 @@
             android:layout_marginBottom="@dimen/_20dp_in"
             android:text="@string/end_session"
             app:layout_constraintBottom_toTopOf="@id/tv_report_a_problem" />
+
+        <ProgressBar
+            android:id="@+id/pb_end_session"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_report_a_problem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_end_session"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

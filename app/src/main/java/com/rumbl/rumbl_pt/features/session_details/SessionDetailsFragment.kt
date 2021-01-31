@@ -102,7 +102,10 @@ class SessionDetailsFragment :
                     }
                 }
                 INPROGRESS.value -> {
-                    // TODO: end session or cancel
+                    findNavController().navigate(
+                        R.id.action_session_details_to_active_session,
+                        ActiveSessionFragment.passSessionInfo(sessionInfo)
+                    )
 
                 }
             }
