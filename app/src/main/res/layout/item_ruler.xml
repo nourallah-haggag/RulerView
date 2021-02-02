@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_5dp_in"
+    android:layout_marginEnd="@dimen/_5dp_in"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_unit_not_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/circularstd_book"
+        android:maxLength="3"
+        android:textColor="@color/cool_grey"
+        android:textSize="@dimen/_10sp_in"
+        app:layout_constraintEnd_toEndOf="@id/view_center_indicator"
+        app:layout_constraintStart_toStartOf="@id/view_center_indicator"
+        app:layout_constraintTop_toBottomOf="@id/iv_selector_indicator"
+        tools:text="10" />
+
+    <View
+        android:id="@+id/view_outer_start_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:background="@color/cool_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/view_inner_start_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:layout_marginEnd="@dimen/_10dp_in"
+        android:background="@color/cool_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit"
+        app:layout_constraintStart_toEndOf="@id/view_outer_start_indicator" />
+
+    <View
+        android:id="@+id/view_inner_start_selected_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:layout_marginEnd="@dimen/_3dp_in"
+        android:background="@color/gc_red"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_unit"
+        app:layout_constraintStart_toEndOf="@id/view_outer_start_indicator" />
+
+    <ImageView
+        android:id="@+id/iv_selector_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10dp_in"
+        android:src="@drawable/ic_flipped_triangle"
+        app:layout_constraintEnd_toEndOf="@id/tv_unit"
+        app:layout_constraintStart_toStartOf="@id/tv_unit"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_center_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_30dp_in"
+        android:layout_marginTop="@dimen/_5dp_in"
+        android:background="@color/cool_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tv_unit"
+        app:layout_constraintStart_toStartOf="@id/tv_unit"
+        app:layout_constraintTop_toBottomOf="@id/tv_unit_not_selected" />
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfprodisplay_bold"
+        android:gravity="center"
+        android:maxLength="3"
+        android:minEms="3"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sp_in"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tv_unit_label"
+        app:layout_constraintEnd_toStartOf="@id/view_inner_end_indicator"
+        app:layout_constraintStart_toEndOf="@id/view_inner_start_indicator"
+        tools:text="80kG" />
+
+    <TextView
+        android:id="@+id/tv_unit_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sfprodisplay_bold"
+        android:gravity="center"
+        android:maxLength="3"
+        android:textColor="@color/gc_red"
+        android:textSize="@dimen/_14sp_in"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tv_unit"
+        app:layout_constraintStart_toStartOf="@id/tv_unit"
+        tools:text="80kG" />
+
+    <View
+        android:id="@+id/view_inner_end_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:background="@color/cool_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_unit" />
+
+    <View
+        android:id="@+id/view_inner_end_selected_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_3dp_in"
+        android:background="@color/gc_red"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_unit" />
+
+    <View
+        android:id="@+id/view_outer_end_indicator"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:background="@color/cool_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_inner_end_indicator" />
+
+    <View
+        android:id="@+id/view_end_filler"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginStart="@dimen/_10dp_in"
+        android:background="@color/cool_grey"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_inner_end_selected_indicator" />
+
+    <View
+        android:id="@+id/view_start_filler"
+        android:layout_width="@dimen/two_in"
+        android:layout_height="@dimen/_20dp_in"
+        android:layout_marginEnd="@dimen/_10dp_in"
+        android:background="@color/cool_grey"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_inner_start_selected_indicator" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

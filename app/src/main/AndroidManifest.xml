@@ -27,6 +27,8 @@
             android:name=".features.splash.SplashActivity"
             android:theme="@style/SplashThem"
             android:screenOrientation="sensorPortrait">
+        </activity>
+        <activity android:name=".features.measure.MeasureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

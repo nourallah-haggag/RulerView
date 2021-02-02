@@ -1,0 +1,35 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_20dp_in"
+    android:layout_marginEnd="@dimen/_20dp_in"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    app:cardCornerRadius="@dimen/_10dp_in"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:strokeColor="@color/warm_grey"
+    app:strokeWidth="@dimen/one_dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ruler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp_in"
+        android:layout_marginBottom="@dimen/_10dp_in"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_ruler" />
+
+    <include
+        android:id="@+id/ruler_selected"
+        layout="@layout/item_ruler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10dp_in"
+        android:layout_marginBottom="@dimen/_10dp_in" />
+</com.google.android.material.card.MaterialCardView>

@@ -6,6 +6,7 @@ import com.rumbl.rumbl_pt.features.auth.login.LoginViewModel
 import com.rumbl.rumbl_pt.features.auth.password_entry.PasswordEntryViewModel
 import com.rumbl.rumbl_pt.features.auth.verification.VerificationViewModel
 import com.rumbl.rumbl_pt.features.home.HomeViewModel
+import com.rumbl.rumbl_pt.features.measure.MeasureActivityViewModel
 import com.rumbl.rumbl_pt.features.notifications.NotificationsViewModel
 import com.rumbl.rumbl_pt.features.profile.ProfileViewModel
 import com.rumbl.rumbl_pt.features.requests.RequestsViewModel
@@ -35,4 +36,5 @@ val viewmodelModules = module {
     viewModel { SessionDetailsViewModel(repo = get()) }
     viewModel { SplashViewModel(repo = get()) }
     viewModel { ActiveSessionViewModel(repo = get()) }
+    viewModel { MeasureActivityViewModel() }
 }
