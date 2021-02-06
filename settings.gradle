@@ -1,2 +1,3 @@
+include ':RulerView'
 include ':app'
 rootProject.name = "Rumbl-PT"

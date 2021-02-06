@@ -8,13 +8,14 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ruler_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20dp_in"
+            android:layout_marginTop="@dimen/_20dp_in"
             android:layout_marginEnd="@dimen/_20dp_in"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             app:cardCornerRadius="@dimen/_10dp_in"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:strokeColor="@color/cool_grey"
             app:strokeWidth="@dimen/one_dp">
@@ -40,6 +41,31 @@
                 android:layout_marginTop="@dimen/_10dp_in"
                 android:layout_marginBottom="@dimen/_10dp_in" />
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40dp_in"
+            android:fontFamily="@font/sfprodisplay_bold"
+            android:textColor="@color/warm_grey"
+            android:textSize="@dimen/_27sp_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ruler_container"
+            tools:text="80 Kg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_simple_ruler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp_in"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_weight"
+            tools:listitem="@layout/item_simple_ruler_horizontal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
