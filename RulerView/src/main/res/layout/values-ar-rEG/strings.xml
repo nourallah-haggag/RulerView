@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rumbl-PT</string>
+    <string name="txt_arabic">العربيه</string>
+    <string name="txt_english">الإنجليزيه</string>
+    <string name="txt_socket_timout_exception_message">يرجى التحقق من اتصال الشبكة الخاص بك</string>
+    <string name="txt_io_exception_message">يرجى التحقق من اتصال الشبكة الخاص بك</string>
+    <string name="txt_general_error">حدث خطأ ما</string>
+    <string name="something_went_wrong_retry">حدث خطأ ما. أعد المحاولة من فضلك</string>
+    <string name="retry_action">أعد المحاولة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="do_you_have_a_problem">هل لديك مشكلة ؟</string>
+    <string name="contact_us"><u>اتصل بنا</u></string>
+    <string name="next">التالى</string>
+    <string name="ksa_code">+966</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="login">تسجيل الدخول</string>
+</resources>
