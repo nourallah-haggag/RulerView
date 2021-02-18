@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.features.measure.list
+package com.rumbl.rulerview.list
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

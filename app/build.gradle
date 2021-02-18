@@ -67,6 +67,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation Dependencies.googleMaterial
     implementation Dependencies.recyclerview
+    implementation project(path: ':RulerView')
 
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.androidx_test_junit

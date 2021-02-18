@@ -1,4 +1,4 @@
-package com.rumbl.rumbl_pt.features.measure.list
+package com.rumbl.rulerview.list
 
 import android.content.Context
 import android.content.res.Resources
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.rumbl.rumbl_pt.R
+import com.rumbl.rulerview.R
 
 class MeasureAdapter(
     private val min: Int,

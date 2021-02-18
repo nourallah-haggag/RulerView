@@ -2,11 +2,11 @@ package com.rumbl.rumbl_pt.features.measure
 
 import android.os.Bundle
 import android.view.View
+import com.rumbl.rulerview.list.MeasureAdapter
+import com.rumbl.rulerview.list.SimpleRulerItem
 import com.rumbl.rumbl_pt.R
 import com.rumbl.rumbl_pt.bases.activities.BaseActivity
 import com.rumbl.rumbl_pt.databinding.ActivityMeasureBinding
-import com.rumbl.rumbl_pt.features.measure.list.MeasureAdapter
-import com.rumbl.rumbl_pt.features.measure.list.SimpleRulerItem
 import kotlinx.android.synthetic.main.activity_measure.*
 import kotlinx.android.synthetic.main.item_ruler.view.*
 
